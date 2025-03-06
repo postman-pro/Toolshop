@@ -397,6 +397,13 @@
 									"\r",
 									"pm.test(\"schema is valid\", function() {\r",
 									"    pm.response.to.have.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"id in URL = id in JSON\", function() {\r",
+									"    let idURL = pm.request.url.path[1];\r",
+									"     let idJSON = pm.response.json().id;\r",
+									"     pm.expect(idJSON).to.eql(idURL);\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -411,13 +418,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/brands/01JNNN7PX0J27SYHA05XR4EN1W",
+							"raw": "{{baseURL}}/brands/01JNNRNGXHW2Y92FM8PP1SGS7W",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
 								"brands",
-								"01JNNN7PX0J27SYHA05XR4EN1W"
+								"01JNNRNGXHW2Y92FM8PP1SGS7W"
 							]
 						}
 					},
