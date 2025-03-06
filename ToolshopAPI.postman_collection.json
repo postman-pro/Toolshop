@@ -1,13 +1,13 @@
 {
 	"info": {
 		"_postman_id": "2f90f032-0f34-4cdb-890d-d091931d2114",
-		"name": "Toolshop API",
+		"name": "ToolshopAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "38047370"
 	},
 	"item": [
 		{
-			"name": "/Brand_DefRequestANDNegTests",
+			"name": "/Brand",
 			"item": [
 				{
 					"name": "GET_BrandDefaultRequest",
@@ -334,6 +334,90 @@
 							],
 							"path": [
 								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET_BrandByID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
+									"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
+									"});\r",
+									"\r",
+									"pm.test(\" header  Content-Type=application/json;charset=UTF-8\", function () {\r",
+									"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json;charset=UTF-8');\r",
+									"});\r",
+									"\r",
+									"//I don’t check these headers because:\r",
+									"//access-control-expose-headers – Files are not uploaded via the API.\r",
+									"//Cache-Control – There is no need to manage data caching.\r",
+									"//charset – browsers and clients automatically handle encoding based on the server response.\r",
+									"//transfer-encoding – It is handled automatically.\r",
+									"\r",
+									"pm.test(\"Response is Array and inside >=2 objects\", \r",
+									"function isValidResponse(response) {\r",
+									"  return Array.isArray(response) && \r",
+									"         response.length >= 2 && \r",
+									"         response.every(item => typeof item === 'object' && item !== null);}\r",
+									");\r",
+									"\r",
+									"\r",
+									"let schema =\r",
+									"\r",
+									"     {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"slug\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"    }    \r",
+									"\r",
+									"\r",
+									"pm.test(\"schema is valid\", function() {\r",
+									"    pm.response.to.have.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/brands/01JNNN7PX0J27SYHA05XR4EN1W",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"brands",
+								"01JNNN7PX0J27SYHA05XR4EN1W"
 							]
 						}
 					},
