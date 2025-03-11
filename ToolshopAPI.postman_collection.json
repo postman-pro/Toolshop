@@ -657,7 +657,7 @@
 									"    },\r",
 									"    \"slug\": {\r",
 									"      \"type\": \"string\",\r",
-									"         \"enum\": [\"new-brand987\"]\r",
+									"      \"enum\": [\"new-brand987\"]\r",
 									"  },\r",
 									"    \"id\": {\r",
 									"      \"type\": \"string\"\r",
