@@ -631,6 +631,10 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"pm.collectionVariables.set(\"name\", pm.response.json().name);\r",
+									"pm.collectionVariables.set(\"slug\", pm.response.json().slug);\r",
+									"\r",
+									"\r",
 									"pm.test(\"Status code is 201\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
 									"});\r",
@@ -653,11 +657,11 @@
 									"  \"properties\": {\r",
 									"    \"name\": {\r",
 									"      \"type\": \"string\",\r",
-									"      \"enum\": [\"new brand 987\"]\r",
+									"      \"enum\": [\"new brand9988\"]\r",
 									"    },\r",
 									"    \"slug\": {\r",
 									"      \"type\": \"string\",\r",
-									"      \"enum\": [\"new-brand98\"]\r",
+									"      \"enum\": [\"new-brand9988\"]\r",
 									"  },\r",
 									"    \"id\": {\r",
 									"      \"type\": \"string\"\r",
@@ -687,7 +691,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"new brand 987\",\r\n  \"slug\": \"new-brand98\"\r\n}",
+							"raw": "{\r\n  \"name\": \"new brand9988\",\r\n  \"slug\": \"new-brand9988\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -768,7 +772,7 @@
 					"response": []
 				},
 				{
-					"name": "POST_BrandCreateExistName",
+					"name": "12_POST_BrandCreateExistName",
 					"event": [
 						{
 							"listen": "test",
@@ -912,6 +916,16 @@
 					"response": []
 				}
 			]
+		}
+	],
+	"variable": [
+		{
+			"key": "name",
+			"value": ""
+		},
+		{
+			"key": "slug",
+			"value": ""
 		}
 	]
 }
