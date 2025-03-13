@@ -1264,7 +1264,7 @@
 					"response": []
 				},
 				{
-					"name": "19_FieldOrderVariation",
+					"name": "19_POST_BrandCreateFieldsOrderVariation",
 					"event": [
 						{
 							"listen": "test",
@@ -1339,6 +1339,91 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n  \"slug\": \"new-brand99881\",\r\n    \"name\": \"new brand99881\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/brands",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "20_POST_BrandCreateUppercaseFieldName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//This test failed with code 422 and error message \"The name field is required.\"\r",
+									"//so, we have a bag \"Field names are case sensitive\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
+									"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
+									"});\r",
+									"\r",
+									"pm.test(\" header  Content-Type=application/json;charset=UTF-8\", function () {\r",
+									"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json;charset=UTF-8');\r",
+									"});\r",
+									"\r",
+									"let schema =\r",
+									"{\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"name\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"enum\": [\"new brand9988\"]\r",
+									"    },\r",
+									"    \"slug\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"enum\": [\"new-brand9988\"]\r",
+									"  },\r",
+									"    \"id\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  //in Swagger name, slug, id are not required\r",
+									"  //but we have only 3 fields in the response, so let's check them as required\r",
+									"  \"required\": [\r",
+									"    \"name\",\r",
+									"    \"slug\",\r",
+									"    \"id\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"schema is valid\", function() {\r",
+									"    pm.response.to.have.jsonSchema(schema);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"NAME\": \"new brand991\",\r\n  \"slug\": \"new-brand991\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
