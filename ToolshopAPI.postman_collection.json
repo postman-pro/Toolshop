@@ -1534,9 +1534,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.collectionVariables.set(\"name\", pm.response.json().name);\r",
-									"pm.collectionVariables.set(\"slug\", pm.response.json().slug);\r",
-									"\r",
+									"//there is no max length for both fields, so let's check it\r",
+									"//start from 160 letters\r",
 									"\r",
 									"pm.test(\"Status code is 201\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
@@ -1594,7 +1593,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an\",\r\n  \"slug\": \"new-brand9988\"\r\n}",
+							"raw": "{\r\n  \"name\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an\",\r\n  \"slug\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
