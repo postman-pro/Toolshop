@@ -1443,14 +1443,15 @@
 					"response": []
 				},
 				{
-					"name": "21_POST_BrandCreateUppercaseFieldName",
+					"name": "21_POST_BrandCreateUppercaseFieldNames",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"//This test failed with code 422 and error message \"The name field is required.\"\r",
-									"//so, we have a bag \"Field names are case sensitive\r",
+									"//This test failed with code 422 and understandable error messages\r",
+									"//this is not important bug and there is no info about it in Swagger  \r",
+									"//so, we can create a bag \"Field names are case sensitive\" with Severity S4 or S5 (Minor or Trivial)\r",
 									"\r",
 									"pm.test(\"Status code is 201\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
@@ -1508,7 +1509,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"NAME\": \"new brand991\",\r\n  \"slug\": \"new-brand991\"\r\n}",
+							"raw": "{\r\n  \"NAME\": \"new brand991\",\r\n  \"SLUG\": \"new-brand991\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1534,7 +1535,7 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"//there is no max length for both fields, so let's check it\r",
+									"//there is no info in Swagger about max length for both fields, so let's check it\r",
 									"//start from 160 letters\r",
 									"\r",
 									"pm.test(\"Status code is 201\", function () {\r",
