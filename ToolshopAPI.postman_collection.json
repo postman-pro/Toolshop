@@ -1768,14 +1768,15 @@
 					"response": []
 				},
 				{
-					"name": "XX_POST_BrandCreateMaxLengthNameField119",
+					"name": "25_POST_BrandCreateMaxLengthFieldsValue119",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.collectionVariables.set(\"name\", pm.response.json().name);\r",
-									"pm.collectionVariables.set(\"slug\", pm.response.json().slug);\r",
+									"//here I got an error code 422 with incorrect error message\r",
+									"//because max length is 120 letters and this test should Pass\r",
+									"//so, I can create a bug \"Response error code 422 while field values have max length 120 and 119 characters \"\r",
 									"\r",
 									"\r",
 									"pm.test(\"Status code is 201\", function () {\r",
@@ -1800,11 +1801,11 @@
 									"  \"properties\": {\r",
 									"    \"name\": {\r",
 									"      \"type\": \"string\",\r",
-									"      \"enum\": [\"new brand9988\"]\r",
+									"      \"enum\": [\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standardr\"]\r",
 									"    },\r",
 									"    \"slug\": {\r",
 									"      \"type\": \"string\",\r",
-									"      \"enum\": [\"new-brand9988\"]\r",
+									"      \"enum\": [\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standardr\"]\r",
 									"  },\r",
 									"    \"id\": {\r",
 									"      \"type\": \"string\"\r",
@@ -1834,7 +1835,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an\",\r\n  \"slug\": \"new-brand9988\"\r\n}",
+							"raw": "{\r\n  \"name\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standardr\",\r\n  \"slug\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standardr\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
