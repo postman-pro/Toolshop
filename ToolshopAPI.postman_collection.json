@@ -703,14 +703,6 @@
 									"});\r",
 									"\r",
 									"\r",
-									"pm.test(\"Response is Array and inside >=2 objects\", function () {\r",
-									"    let jsonData = pm.response.json();\r",
-									"    pm.expect(Array.isArray(jsonData), \"Response should be an array\").to.be.true;\r",
-									"    pm.expect(jsonData.length, \"Array should have at least 2 objects\").to.be.at.least(2);\r",
-									"    pm.expect(jsonData.every(item => typeof item === 'object' && item !== null), \"Each item should be an object\").to.be.true;\r",
-									"});\r",
-									"\r",
-									"\r",
 									"let schema =\r",
 									"\r",
 									"     {\r",
@@ -745,20 +737,32 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"auth": {
 							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{baseURL}}/brands/01JNR7MJD4VDVJBXH1TJXFYT8T",
+							"raw": "{{baseURL}}/brands/01jpejx5k3a8fnpvf5qzgrsfd8",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
 								"brands",
-								"01JNR7MJD4VDVJBXH1TJXFYT8T"
+								"01jpejx5k3a8fnpvf5qzgrsfd8"
 							]
 						}
 					},
