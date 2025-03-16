@@ -769,6 +769,99 @@
 					"response": []
 				},
 				{
+					"name": "6.1XX_GET_BrandByIDUppercaseID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//In previous test I got ID number with lower case\r",
+									"//so, here I check the same ID but uppercase\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
+									"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
+									"});\r",
+									"\r",
+									"pm.test(\" header  Content-Type=application/json;charset=UTF-8\", function () {\r",
+									"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json;charset=UTF-8');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"let schema =\r",
+									"\r",
+									"     {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"name\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"slug\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"    }    \r",
+									"\r",
+									"\r",
+									"pm.test(\"schema is valid\", function() {\r",
+									"    pm.response.to.have.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"id in URL = id in JSON\", function() {\r",
+									"    let idURL = pm.request.url.path[1];\r",
+									"     let idJSON = pm.response.json().id;\r",
+									"     pm.expect(idJSON).to.eql(idURL);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/brands/01JPEJX5K3A8FNPVF5QZGRSFD8",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"brands",
+								"01JPEJX5K3A8FNPVF5QZGRSFD8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "7_GET_BrandByNonExistIDSymbol",
 					"event": [
 						{
