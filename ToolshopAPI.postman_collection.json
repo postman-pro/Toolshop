@@ -777,7 +777,7 @@
 								"exec": [
 									"//In previous test I got ID number with lower case\r",
 									"//so, here I check the same ID but uppercase\r",
-									"\r",
+									"//to check that the id in the url is equal to the id in the response, I convert the id from the url to lower case in the test (see test below)\r",
 									"\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -820,7 +820,7 @@
 									"\r",
 									"\r",
 									"pm.test(\"id in URL = id in JSON\", function() {\r",
-									"    let idURL = pm.request.url.path[1];\r",
+									"     let idURL = pm.request.url.path[1].toLowerCase(); \r",
 									"     let idJSON = pm.response.json().id;\r",
 									"     pm.expect(idJSON).to.eql(idURL);\r",
 									"});"
