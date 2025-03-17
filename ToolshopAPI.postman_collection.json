@@ -13,7 +13,7 @@
 					"name": "Tests Not well formed JSON",
 					"item": [
 						{
-							"name": "26_POST_BrandCreateArrayInsteadObject",
+							"name": "28_POST_BrandCreateArrayInsteadObject",
 							"event": [
 								{
 									"listen": "test",
@@ -74,7 +74,7 @@
 							"response": []
 						},
 						{
-							"name": "27_POST_BrandCreateCommaAtTheEnd",
+							"name": "29_POST_BrandCreateCommaAtTheEnd",
 							"event": [
 								{
 									"listen": "test",
@@ -135,7 +135,7 @@
 							"response": []
 						},
 						{
-							"name": "28_POST_BrandCreateNoCommaAtAll",
+							"name": "30_POST_BrandCreateNoCommaAtAll",
 							"event": [
 								{
 									"listen": "test",
@@ -196,7 +196,7 @@
 							"response": []
 						},
 						{
-							"name": "29_POST_BrandCreateIncompleteKey-ValueFormat",
+							"name": "31_POST_BrandCreateIncompleteKey-ValueFormat",
 							"event": [
 								{
 									"listen": "test",
