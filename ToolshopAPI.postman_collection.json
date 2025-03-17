@@ -536,7 +536,7 @@
 					"response": []
 				},
 				{
-					"name": "4.1XX_GET_BrandUppercaseURL",
+					"name": "5_GET_BrandUppercaseURL",
 					"event": [
 						{
 							"listen": "test",
@@ -616,7 +616,7 @@
 					"response": []
 				},
 				{
-					"name": "5_GET_BrandMethodNotAllowed",
+					"name": "6_GET_BrandMethodNotAllowed",
 					"event": [
 						{
 							"listen": "test",
@@ -679,7 +679,7 @@
 					"response": []
 				},
 				{
-					"name": "6_GET_BrandByID",
+					"name": "7_GET_BrandByID",
 					"event": [
 						{
 							"listen": "test",
@@ -756,26 +756,26 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/brands/01jpejx5k3a8fnpvf5qzgrsfd8",
+							"raw": "{{baseURL}}/brands/01jpenqw9wdzbj0nrttm0v7xma",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
 								"brands",
-								"01jpejx5k3a8fnpvf5qzgrsfd8"
+								"01jpenqw9wdzbj0nrttm0v7xma"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "6.1XX_GET_BrandByIDUppercaseID",
+					"name": "8_GET_BrandByIDUppercaseID",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"//In previous test I got ID number with lower case\r",
+									"//I have ID number with lower case\r",
 									"//so, here I check the same ID but uppercase\r",
 									"//to check that the id in the url is equal to the id in the response, I convert the id from the url to lower case in the test (see test below)\r",
 									"\r",
@@ -849,20 +849,20 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/brands/01JPEJX5K3A8FNPVF5QZGRSFD8",
+							"raw": "{{baseURL}}/brands/01JPENQW9WDZBJ0NRTTM0V7XMA",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
 								"brands",
-								"01JPEJX5K3A8FNPVF5QZGRSFD8"
+								"01JPENQW9WDZBJ0NRTTM0V7XMA"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "7_GET_BrandByNonExistIDSymbol",
+					"name": "9_GET_BrandByNonExistIDSymbol",
 					"event": [
 						{
 							"listen": "test",
@@ -923,7 +923,7 @@
 					"response": []
 				},
 				{
-					"name": "8_GET_BrandByNonExistIDNumber",
+					"name": "10_GET_BrandByNonExistIDNumber",
 					"event": [
 						{
 							"listen": "test",
@@ -992,7 +992,7 @@
 					"response": []
 				},
 				{
-					"name": "9_GET_BrandByIDMethodNotAllowed",
+					"name": "11_GET_BrandByIDMethodNotAllowed",
 					"event": [
 						{
 							"listen": "test",
@@ -1061,7 +1061,7 @@
 					"response": []
 				},
 				{
-					"name": "10_POST_BrandCreate",
+					"name": "12_POST_BrandCreate",
 					"event": [
 						{
 							"listen": "test",
@@ -1147,7 +1147,7 @@
 					"response": []
 				},
 				{
-					"name": "11_POST_BrandCreateExistSlug",
+					"name": "13_POST_BrandCreateExistSlug",
 					"event": [
 						{
 							"listen": "test",
@@ -1213,7 +1213,7 @@
 					"response": []
 				},
 				{
-					"name": "12_POST_BrandCreateExistName",
+					"name": "14_POST_BrandCreateExistName",
 					"event": [
 						{
 							"listen": "test",
@@ -1280,7 +1280,7 @@
 					"response": []
 				},
 				{
-					"name": "13_POST_BrandCreateNameNullSlugAbsent",
+					"name": "15_POST_BrandCreateNameNullSlugAbsent",
 					"event": [
 						{
 							"listen": "test",
@@ -1350,7 +1350,7 @@
 					"response": []
 				},
 				{
-					"name": "14_POST_BrandCreateNameIntegerSlugEmpty",
+					"name": "16_POST_BrandCreateNameIntegerSlugEmpty",
 					"event": [
 						{
 							"listen": "test",
@@ -1416,7 +1416,7 @@
 					"response": []
 				},
 				{
-					"name": "15_POST_BrandCreateNameSymbolSlugInteger",
+					"name": "17_POST_BrandCreateNameSymbolSlugInteger",
 					"event": [
 						{
 							"listen": "test",
@@ -1484,7 +1484,7 @@
 					"response": []
 				},
 				{
-					"name": "16_POST_BrandCreateNameAbsentSlugNull",
+					"name": "18_POST_BrandCreateNameAbsentSlugNull",
 					"event": [
 						{
 							"listen": "test",
@@ -1554,7 +1554,7 @@
 					"response": []
 				},
 				{
-					"name": "17_POST_BrandCreateNameEmptySlugSymbol",
+					"name": "19_POST_BrandCreateNameEmptySlugSymbol",
 					"event": [
 						{
 							"listen": "test",
@@ -1620,7 +1620,7 @@
 					"response": []
 				},
 				{
-					"name": "18_POST_BrandCreateMethodNotAllowed",
+					"name": "20_POST_BrandCreateMethodNotAllowed",
 					"event": [
 						{
 							"listen": "test",
@@ -1690,7 +1690,7 @@
 					"response": []
 				},
 				{
-					"name": "19_POST_BrandCreateUppercaseFieldValues",
+					"name": "21_POST_BrandCreateUppercaseFieldNameValues",
 					"event": [
 						{
 							"listen": "test",
@@ -1775,7 +1775,7 @@
 					"response": []
 				},
 				{
-					"name": "20_POST_BrandCreateFieldsOrderVariation",
+					"name": "22_POST_BrandCreateFieldsOrderVariation",
 					"event": [
 						{
 							"listen": "test",
@@ -1869,7 +1869,7 @@
 					"response": []
 				},
 				{
-					"name": "21_POST_BrandCreateUppercaseFieldNames",
+					"name": "23_POST_BrandCreateUppercaseFieldNames",
 					"event": [
 						{
 							"listen": "test",
@@ -1955,7 +1955,7 @@
 					"response": []
 				},
 				{
-					"name": "22_POST_BrandCreateMaxLengthFieldsValue160",
+					"name": "24_POST_BrandCreateMaxLengthFieldsValue160",
 					"event": [
 						{
 							"listen": "test",
@@ -2041,7 +2041,7 @@
 					"response": []
 				},
 				{
-					"name": "23_POST_BrandCreateMaxLengthFieldsValue121",
+					"name": "25_POST_BrandCreateMaxLengthFieldsValue121",
 					"event": [
 						{
 							"listen": "test",
@@ -2108,7 +2108,7 @@
 					"response": []
 				},
 				{
-					"name": "24_POST_BrandCreateMaxLengthFieldsValue120",
+					"name": "26_POST_BrandCreateMaxLengthFieldsValue120",
 					"event": [
 						{
 							"listen": "test",
@@ -2194,7 +2194,7 @@
 					"response": []
 				},
 				{
-					"name": "25_POST_BrandCreateMaxLengthFieldsValue119",
+					"name": "27_POST_BrandCreateMaxLengthFieldsValue119",
 					"event": [
 						{
 							"listen": "test",
