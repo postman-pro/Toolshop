@@ -97,7 +97,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/search?q=123",
+									"raw": "{{baseURL}}/brands/search?q=forgeflex+tools",
 									"host": [
 										"{{baseURL}}"
 									],
@@ -108,7 +108,7 @@
 									"query": [
 										{
 											"key": "q",
-											"value": "123"
+											"value": "forgeflex+tools"
 										}
 									]
 								}
@@ -200,7 +200,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/search/?q=ForgeFlex%20Tools",
+									"raw": "{{baseURL}}/brands/search/?q=mmm",
 									"host": [
 										"{{baseURL}}"
 									],
@@ -212,7 +212,7 @@
 									"query": [
 										{
 											"key": "q",
-											"value": "ForgeFlex%20Tools"
+											"value": "mmm"
 										}
 									]
 								}
@@ -1098,7 +1098,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"new brand9988\",\r\n  \"slug\": \"new-brand9988\"\r\n}",
+									"raw": "{\r\n  \"name\": \"NoName\",\r\n  \"slug\": \"12378\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
