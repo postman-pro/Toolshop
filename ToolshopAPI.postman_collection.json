@@ -487,8 +487,9 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//there is no info about this case in swagger\r",
-											"//let's say I got expected result - all available Brands\r",
+											"//Swagger has no information about the response content when using special characters instead of the name parameter value. \r",
+											"//Therefore, for simplicity, I will check only special characters in separate tests: %, ?, @\r",
+											"//let's say I got expected result - empty array in the response\r",
 											"\r",
 											"\r",
 											"pm.test(\"Status code is 200\", function () {\r",
