@@ -488,7 +488,7 @@
 									"script": {
 										"exec": [
 											"//Swagger has no information about the response content when using special characters instead of the name parameter value. \r",
-											"//Therefore, for simplicity, I will check only special characters in separate tests: %, ?, @\r",
+											"//Therefore, for simplicity, I will check only special characters in separate tests: %, &, @\r",
 											"//let's say I got unexpected result - all available brands in the response\r",
 											"\r",
 											"//ER for this case is code 400 and will be good if there is an error message e.g. \"message\": \"Malformed URI\"\r",
@@ -567,7 +567,7 @@
 									"script": {
 										"exec": [
 											"//Swagger has no information about the response content when using special characters instead of the name parameter value. \r",
-											"//Therefore, for simplicity, I will check only special characters in separate tests: %, ?, @\r",
+											"//Therefore, for simplicity, I will check only special characters in separate tests: %, &, @\r",
 											"//let's say I got expected result - empty array in the response\r",
 											"\r",
 											"\r",
