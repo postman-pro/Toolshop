@@ -3248,7 +3248,7 @@
 							"response": []
 						},
 						{
-							"name": "PUT_BrandUpdateNameEmptySlugSymbol",
+							"name": "PUT_BrandUpdateNameIntegerSlugSymbol",
 							"event": [
 								{
 									"listen": "test",
@@ -3278,11 +3278,9 @@
 											"    }\r",
 											")\r",
 											"\r",
-											"//let's say should be error message like this\r",
-											"//bug \"PUT_Not clear error message in case \"name\": \"\" (empty)\"\r",
-											"pm.test(\"Message is correct = The name field cannot be empty.\", function()\r",
+											"pm.test(\"Message is correct = The name field must be a string.\", function()\r",
 											"    {\r",
-											"        pm.expect(pm.response.json().name[0]).to.eql(\"The name field cannot be empty.\"\r",
+											"        pm.expect(pm.response.json().name[0]).to.eql(\"The name field must be a string.\"\r",
 											");\r",
 											"    }\r",
 											")\r",
@@ -3298,7 +3296,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"\",\r\n  \"slug\": \"%\"\r\n}",
+									"raw": "{\r\n  \"name\": 123,\r\n  \"slug\": \"%\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
