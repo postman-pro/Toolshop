@@ -3245,7 +3245,7 @@
 							"response": []
 						},
 						{
-							"name": "PUT_BrandCreateNameEmptySlugSymbol",
+							"name": "PUT_BrandUpdateNameEmptySlugSymbol",
 							"event": [
 								{
 									"listen": "test",
