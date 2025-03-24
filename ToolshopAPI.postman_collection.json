@@ -3380,6 +3380,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"//let's say code 422 is expected\r",
 											"pm.test(\"Status code is 422\", function () {\r",
 											"    pm.response.to.have.status(422);\r",
 											"});\r",
