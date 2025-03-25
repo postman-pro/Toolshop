@@ -2779,8 +2779,9 @@
 											"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');\r",
 											"});\r",
 											"\r",
-											"pm.test(\" error message is correct = \"Example of the correct message\", function () {\r",
-											"    pm.expect(pm.response.json().message).to.eql(\"Example of the correct message\")\r",
+											"//let's say should be the error message like this:\r",
+											"pm.test(\"Error message is correct = Invalid JSON format: expected an object but received an array\", function () {\r",
+											"    pm.expect(pm.response.json().message).to.eql(\"Invalid JSON format: expected an object but received an array\")\r",
 											"    })\r",
 											""
 										],
