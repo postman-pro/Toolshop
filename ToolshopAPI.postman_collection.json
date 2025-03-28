@@ -4130,6 +4130,80 @@
 							"response": []
 						},
 						{
+							"name": "DELETE_DeleteBrandAlreadyDeleted",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"//беремо айді з попереднього тесту і видаляємо - ДОДАТИ КОД\r",
+											"\r",
+											"//impossible to perform, because I'm not an admin\r",
+											"\r",
+											"\r",
+											"pm.test(\"Status code is 404\", function () {   \r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
+											"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
+											"});\r",
+											"\r",
+											"pm.test(\" header  Content-Type=application/json\", function () {\r",
+											"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Message is correct = Requested item not found\", function () {\r",
+											"    pm.expect(pm.response.json().message).to.eql(\"Requested item not found\")\r",
+											"    })\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS5wcmFjdGljZXNvZnR3YXJldGVzdGluZy5jb20vdXNlcnMvbG9naW4iLCJpYXQiOjE3NDMxNDM5NDcsImV4cCI6MTc0MzE0NDI0NywibmJmIjoxNzQzMTQzOTQ3LCJqdGkiOiJ0UG0xTndhRUFCSUZVSVFIIiwic3ViIjoiMDFqcWRxazRlenpxaGtiMnZrODVrZnBwdG0iLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6InVzZXIifQ._tYmdfUKKzHl6fuaVuBotBCC7BL7ci7CSWPv2rZ5upU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/brands/01jqdqk4ezzqhkb2vk85kfpptm",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"brands",
+										"01jqdqk4ezzqhkb2vk85kfpptm"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "DELETE_DeleteCreatedMethodNotAllowed",
 							"event": [
 								{
@@ -4138,8 +4212,6 @@
 										"exec": [
 											"// спочатку створюємо користувача в 12_POST_BrandCreate  - ДОДАТИ КОД\r",
 											"// беремо його айді і його видаляємо - ДОДАТИ КОД\r",
-											"\r",
-											"//impossible to perform, because I'm not an admin\r",
 											"\r",
 											"\r",
 											"pm.test(\"Status code is 405\", function () {\r",
