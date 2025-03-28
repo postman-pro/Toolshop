@@ -3654,7 +3654,7 @@
 							"response": []
 						},
 						{
-							"name": "PUT_FieldOrderVariation",
+							"name": "PUT_BrandUpdateFieldOrderVariation",
 							"event": [
 								{
 									"listen": "test",
@@ -4054,6 +4054,60 @@
 				{
 					"name": "DELETE_Brand",
 					"item": [
+						{
+							"name": "RegisterUser",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"first_name\": \"Test ONE\",\r\n  \"last_name\": \"Test Delete\",\r\n  \"address\": {\r\n    \"street\": \"Street 1\",\r\n    \"city\": \"City\",\r\n    \"state\": \"State\",\r\n    \"country\": \"Country\",\r\n    \"postal_code\": \"1234AA\"\r\n  },\r\n  \"phone\": \"0987654321\",\r\n  \"dob\": \"1970-01-01\",\r\n  \"password\": \"super-secretT1\",\r\n  \"email\": \"john@doe.example\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/users/register",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"users",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "RegisterUser Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"first_name\": \"Test ONE\",\r\n  \"last_name\": \"Test Delete\",\r\n  \"address\": {\r\n    \"street\": \"Street 1\",\r\n    \"city\": \"City\",\r\n    \"state\": \"State\",\r\n    \"country\": \"Country\",\r\n    \"postal_code\": \"1234AA\"\r\n  },\r\n  \"phone\": \"0987654321\",\r\n  \"dob\": \"1970-01-01\",\r\n  \"password\": \"super-secretT1\",\r\n  \"email\": \"john@doe.example\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/users/register",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"users",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
 						{
 							"name": "DELETE_BrandNotAuthorized",
 							"event": [
