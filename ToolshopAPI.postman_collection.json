@@ -1604,7 +1604,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"newname\",\r\n  \"slug\": \"aaaa\"\r\n}",
+									"raw": "{\r\n  \"name\": \"newname\",\r\n  \"slug\": \"aaaa2\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4662,7 +4662,9 @@
 											"    pm.response.to.have.jsonSchema(schema);\r",
 											"});\r",
 											"\r",
-											"\r",
+											"pm.test(\"Message is correct = Unauthorized\", function () {\r",
+											"    pm.expect(pm.response.json().message).to.eql(\"Unauthorized\")\r",
+											"    })\r",
 											""
 										],
 										"type": "text/javascript",
