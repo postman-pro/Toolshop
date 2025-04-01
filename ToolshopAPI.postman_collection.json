@@ -4594,7 +4594,9 @@
 											"    pm.response.to.have.jsonSchema(schema);\r",
 											"});\r",
 											"\r",
-											"\r",
+											"pm.test(\"Message is correct = Unauthorized\", function () {\r",
+											"    pm.expect(pm.response.json().message).to.eql(\"Unauthorized\")\r",
+											"    })\r",
 											""
 										],
 										"type": "text/javascript",
