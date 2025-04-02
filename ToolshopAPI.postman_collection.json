@@ -1547,8 +1547,9 @@
 											"pm.collectionVariables.set(\"name\", pm.response.json().name);\r",
 											"pm.collectionVariables.set(\"slug\", pm.response.json().slug);\r",
 											"\r",
+											"//I need to set a collection variable 'brand_id' with the value of the 'id' field from the JSON response\r",
+											"//because I will use it in another request below\r",
 											"pm.collectionVariables.set(\"brand_id\", pm.response.json().id);\r",
-											"\r",
 											"\r",
 											"pm.test(\"Status code is 201\", function () {\r",
 											"    pm.response.to.have.status(201);\r",
@@ -1603,8 +1604,11 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"packages": {},
-										"type": "text/javascript"
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -1772,6 +1776,8 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"//When simultaneously entering invalid values into both required fields in the response body, an error is received separately for each of the required fields, so I can perform this check while simultaneously entering negative data\r",
+											"\r",
 											"pm.test(\"Status code is 422\", function () {\r",
 											"    pm.response.to.have.status(422);\r",
 											"});\r",
@@ -4070,10 +4076,9 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// спочатку створюємо користувача в 12_POST_BrandCreate  - ДОДАТИ КОД\r",
-											"// беремо його айді і його видаляємо - ДОДАТИ КОД\r",
+											"//in the endpoint I use setted collection variable in the POST_BrandCreate\r",
 											"\r",
-											"//impossible to perform, because because I don't have an Amin role\r",
+											"//impossible to perform Brand deletion, because I don't have an Amin role\r",
 											"\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
