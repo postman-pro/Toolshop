@@ -1538,7 +1538,7 @@
 					"name": "POST_BrandCreate",
 					"item": [
 						{
-							"name": "12_POST_BrandCreate",
+							"name": "20_POST_BrandCreate",
 							"event": [
 								{
 									"listen": "test",
