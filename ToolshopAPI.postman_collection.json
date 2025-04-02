@@ -4069,7 +4069,7 @@
 					"name": "DELETE_Brand",
 					"item": [
 						{
-							"name": "DELETE_DeleteCreatedBrandByBrandID",
+							"name": "56_DELETE_DeleteCreatedBrandByBrandID",
 							"event": [
 								{
 									"listen": "test",
@@ -4143,16 +4143,14 @@
 							"response": []
 						},
 						{
-							"name": "DELETE_DeleteBrandAlreadyDeleted",
+							"name": "57_DELETE_DeleteBrandAlreadyDeleted",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//беремо айді з попереднього тесту і видаляємо - ДОДАТИ КОД\r",
-											"\r",
-											"//impossible to perform, because I'm not an admin\r",
-											"\r",
+											"//impossible to perform Brand deletion, because I don't have an Amin role\r",
+											"//therefore the checks in this test are only for example purposes\r",
 											"\r",
 											"pm.test(\"Status code is 404\", function () {   \r",
 											"    pm.response.to.have.status(404);\r",
@@ -4204,13 +4202,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/01jqdqk4ezzqhkb2vk85kfpptm",
+									"raw": "{{baseURL}}/brands/{{brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"01jqdqk4ezzqhkb2vk85kfpptm"
+										"{{brand_id}}"
 									]
 								}
 							},
