@@ -4075,9 +4075,10 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//in the endpoint I use setted collection variable in the POST_BrandCreate\r",
+											"//in the endpoint I use setted collection variable band_id in the 20_POST_BrandCreate\r",
 											"\r",
 											"//impossible to perform Brand deletion, because I don't have an Amin role\r",
+											"//therefore the checks in this test are only for example purposes\r",
 											"\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
