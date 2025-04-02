@@ -1643,10 +1643,9 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//if need to use setted variable slug in previous test 20, possible to do it with this code:\r",
+											"//need to use setted variable slug in previous test 20:\r",
 											"let slug = pm.collectionVariables.get(\"slug\");\r",
 											"// and after in this test - to check it in the schema \"enum\"= [slug] - but here we have an error message. So, don't check the schema \r",
-											"\r",
 											"\r",
 											"pm.test(\"Status code is 422\", function () {\r",
 											"    pm.response.to.have.status(422);\r",
@@ -1703,7 +1702,7 @@
 							"response": []
 						},
 						{
-							"name": "14_POST_BrandCreateExistName",
+							"name": "22_POST_BrandCreateExistName",
 							"event": [
 								{
 									"listen": "test",
@@ -1770,7 +1769,7 @@
 							"response": []
 						},
 						{
-							"name": "15_POST_BrandCreateNameNullSlugAbsent",
+							"name": "23_POST_BrandCreateNameNullSlugAbsent",
 							"event": [
 								{
 									"listen": "test",
@@ -1842,7 +1841,7 @@
 							"response": []
 						},
 						{
-							"name": "16_POST_BrandCreateNameIntegerSlugEmpty",
+							"name": "24_POST_BrandCreateNameIntegerSlugEmpty",
 							"event": [
 								{
 									"listen": "test",
@@ -1908,7 +1907,7 @@
 							"response": []
 						},
 						{
-							"name": "17_POST_BrandCreateNameSymbolSlugInteger",
+							"name": "25_POST_BrandCreateNameSymbolSlugInteger",
 							"event": [
 								{
 									"listen": "test",
@@ -1976,7 +1975,7 @@
 							"response": []
 						},
 						{
-							"name": "18_POST_BrandCreateNameAbsentSlugNull",
+							"name": "26_POST_BrandCreateNameAbsentSlugNull",
 							"event": [
 								{
 									"listen": "test",
@@ -2046,7 +2045,7 @@
 							"response": []
 						},
 						{
-							"name": "19_POST_BrandCreateNameEmptySlugSymbol",
+							"name": "27_POST_BrandCreateNameEmptySlugSymbol",
 							"event": [
 								{
 									"listen": "test",
@@ -2112,7 +2111,7 @@
 							"response": []
 						},
 						{
-							"name": "20_POST_BrandCreateMethodNotAllowed",
+							"name": "28_POST_BrandCreateMethodNotAllowed",
 							"event": [
 								{
 									"listen": "test",
@@ -2182,7 +2181,7 @@
 							"response": []
 						},
 						{
-							"name": "21_POST_BrandCreateUppercaseFieldNameValues",
+							"name": "29_POST_BrandCreateUppercaseFieldNameValues",
 							"event": [
 								{
 									"listen": "test",
@@ -2267,7 +2266,7 @@
 							"response": []
 						},
 						{
-							"name": "22_POST_BrandCreateFieldsOrderVariation",
+							"name": "30_POST_BrandCreateFieldsOrderVariation",
 							"event": [
 								{
 									"listen": "test",
@@ -2361,7 +2360,7 @@
 							"response": []
 						},
 						{
-							"name": "23_POST_BrandCreateUppercaseFieldNames",
+							"name": "31_POST_BrandCreateUppercaseFieldNames",
 							"event": [
 								{
 									"listen": "test",
@@ -2447,7 +2446,7 @@
 							"response": []
 						},
 						{
-							"name": "24_POST_BrandCreateMaxLengthFieldsValue160",
+							"name": "32_POST_BrandCreateMaxLengthFieldsValue160",
 							"event": [
 								{
 									"listen": "test",
@@ -2533,7 +2532,7 @@
 							"response": []
 						},
 						{
-							"name": "25_POST_BrandCreateMaxLengthFieldsValue121",
+							"name": "33_POST_BrandCreateMaxLengthFieldsValue121",
 							"event": [
 								{
 									"listen": "test",
@@ -2600,7 +2599,7 @@
 							"response": []
 						},
 						{
-							"name": "26_POST_BrandCreateMaxLengthFieldsValue120",
+							"name": "34_POST_BrandCreateMaxLengthFieldsValue120",
 							"event": [
 								{
 									"listen": "test",
@@ -2686,7 +2685,7 @@
 							"response": []
 						},
 						{
-							"name": "27_POST_BrandCreateMaxLengthFieldsValue119",
+							"name": "35_POST_BrandCreateMaxLengthFieldsValue119",
 							"event": [
 								{
 									"listen": "test",
@@ -2773,7 +2772,7 @@
 							"response": []
 						},
 						{
-							"name": "28_POST_BrandCreateArrayInsteadObject",
+							"name": "36_POST_BrandCreateArrayInsteadObject",
 							"event": [
 								{
 									"listen": "test",
@@ -2835,7 +2834,7 @@
 							"response": []
 						},
 						{
-							"name": "29_POST_BrandCreateCommaAtTheEnd",
+							"name": "37_POST_BrandCreateCommaAtTheEnd",
 							"event": [
 								{
 									"listen": "test",
@@ -2896,7 +2895,7 @@
 							"response": []
 						},
 						{
-							"name": "30_POST_BrandCreateNoCommaAtAll",
+							"name": "38_POST_BrandCreateNoCommaAtAll",
 							"event": [
 								{
 									"listen": "test",
@@ -2957,7 +2956,7 @@
 							"response": []
 						},
 						{
-							"name": "31_POST_BrandCreateIncompleteKey-ValueFormat",
+							"name": "39_POST_BrandCreateIncompleteKey-ValueFormat",
 							"event": [
 								{
 									"listen": "test",
