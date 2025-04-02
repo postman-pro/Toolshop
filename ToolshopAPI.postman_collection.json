@@ -3022,7 +3022,7 @@
 					"name": "PUT_BrandID",
 					"item": [
 						{
-							"name": "PUT_BrandIDUpdateCreatedBrand",
+							"name": "40_PUT_BrandIDUpdateCreatedBrand",
 							"event": [
 								{
 									"listen": "test",
@@ -3081,7 +3081,7 @@
 							"response": []
 						},
 						{
-							"name": "PUT_BrandIDUpdateNonExistBrand",
+							"name": "41_PUT_BrandIDUpdateNonExistBrand",
 							"event": [
 								{
 									"listen": "test",
@@ -3140,7 +3140,7 @@
 							"response": []
 						},
 						{
-							"name": "PUT_BrandIDMethodNotAllowed",
+							"name": "42_PUT_BrandIDMethodNotAllowed",
 							"event": [
 								{
 									"listen": "test",
@@ -3197,7 +3197,7 @@
 							"response": []
 						},
 						{
-							"name": "PUT_BrandIDUpdateNameEmptySlugAbsent",
+							"name": "43_PUT_BrandIDUpdateNameEmptySlugAbsent",
 							"event": [
 								{
 									"listen": "test",
@@ -3269,7 +3269,7 @@
 							"response": []
 						},
 						{
-							"name": "PUT_BrandUpdateNameIntegerSlugSymbol",
+							"name": "44_PUT_BrandUpdateNameIntegerSlugSymbol",
 							"event": [
 								{
 									"listen": "test",
@@ -3338,7 +3338,7 @@
 							"response": []
 						},
 						{
-							"name": "PUT_BrandUpdateNameAbsentSlugNull",
+							"name": "45_PUT_BrandUpdateNameAbsentSlugNull",
 							"event": [
 								{
 									"listen": "test",
@@ -3395,7 +3395,7 @@
 							"response": []
 						},
 						{
-							"name": "PUT_BrandUpdateNameSymbolSlugInteger",
+							"name": "46_PUT_BrandUpdateNameSymbolSlugInteger",
 							"event": [
 								{
 									"listen": "test",
@@ -3461,7 +3461,7 @@
 							"response": []
 						},
 						{
-							"name": "PUT_BrandUpdateNameNullSlugEmpty",
+							"name": "47_PUT_BrandUpdateNameNullSlugEmpty",
 							"event": [
 								{
 									"listen": "test",
@@ -3533,7 +3533,7 @@
 							"response": []
 						},
 						{
-							"name": "PUT_BrandUpdateUppercaseFieldNameValue",
+							"name": "48_PUT_BrandUpdateUppercaseFieldNameValue",
 							"event": [
 								{
 									"listen": "test",
@@ -3602,7 +3602,7 @@
 							"response": []
 						},
 						{
-							"name": "PUT_BrandUpdateUppercaseFieldNames",
+							"name": "49_PUT_BrandUpdateUppercaseFieldNames",
 							"event": [
 								{
 									"listen": "test",
@@ -3668,7 +3668,7 @@
 							"response": []
 						},
 						{
-							"name": "PUT_BrandUpdateFieldOrderVariation",
+							"name": "50_PUT_BrandUpdateFieldOrderVariation",
 							"event": [
 								{
 									"listen": "test",
@@ -3734,7 +3734,7 @@
 							"response": []
 						},
 						{
-							"name": "PUT_BrandUpdateArrayInsteadObject",
+							"name": "51_PUT_BrandUpdateArrayInsteadObject",
 							"event": [
 								{
 									"listen": "test",
@@ -3801,7 +3801,7 @@
 							"response": []
 						},
 						{
-							"name": "PUT_BrandUpdateCommaAtTheEnd",
+							"name": "52_PUT_BrandUpdateCommaAtTheEnd",
 							"event": [
 								{
 									"listen": "test",
@@ -3868,7 +3868,7 @@
 							"response": []
 						},
 						{
-							"name": "PUT_BrandUpdateNoCommaAtAll",
+							"name": "53_PUT_BrandUpdateNoCommaAtAll",
 							"event": [
 								{
 									"listen": "test",
@@ -3935,7 +3935,7 @@
 							"response": []
 						},
 						{
-							"name": "PUT_BrandUpdateIncompleteKey-ValueFormat",
+							"name": "54_PUT_BrandUpdateIncompleteKey-ValueFormat",
 							"event": [
 								{
 									"listen": "test",
@@ -4002,7 +4002,7 @@
 							"response": []
 						},
 						{
-							"name": "PUT_BrandUpdateDeletedBrand",
+							"name": "55_PUT_BrandUpdateDeletedBrand",
 							"event": [
 								{
 									"listen": "test",
