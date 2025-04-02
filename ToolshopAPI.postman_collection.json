@@ -825,7 +825,7 @@
 					"name": "GET_Brands/search",
 					"item": [
 						{
-							"name": "GET_BrandByName",
+							"name": "12_GET_BrandByName",
 							"event": [
 								{
 									"listen": "test",
@@ -928,7 +928,7 @@
 							"response": []
 						},
 						{
-							"name": "GET_BrandByNonExistName",
+							"name": "13_GET_BrandByNonExistName",
 							"event": [
 								{
 									"listen": "test",
@@ -1007,7 +1007,7 @@
 							"response": []
 						},
 						{
-							"name": "POST_BrandByNameMethodNotAllowed",
+							"name": "14_GET_BrandByNameMethodNotAllowed",
 							"event": [
 								{
 									"listen": "test",
@@ -1080,7 +1080,7 @@
 							"response": []
 						},
 						{
-							"name": "GET_BrandByNameUppercase",
+							"name": "15_GET_BrandByNameUppercase",
 							"event": [
 								{
 									"listen": "test",
@@ -1183,7 +1183,7 @@
 							"response": []
 						},
 						{
-							"name": "GET_BrandByNameAbsent",
+							"name": "16_GET_BrandByNameAbsent",
 							"event": [
 								{
 									"listen": "test",
@@ -1293,7 +1293,7 @@
 							"response": []
 						},
 						{
-							"name": "GET_BrandByName=%",
+							"name": "17_GET_BrandByName=%",
 							"event": [
 								{
 									"listen": "test",
@@ -1372,7 +1372,7 @@
 							"response": []
 						},
 						{
-							"name": "GET_BrandByName=&",
+							"name": "18_GET_BrandByName=&",
 							"event": [
 								{
 									"listen": "test",
@@ -1456,7 +1456,7 @@
 							"response": []
 						},
 						{
-							"name": "GET_BrandByName=@",
+							"name": "19_GET_BrandByName=@",
 							"event": [
 								{
 									"listen": "test",
@@ -1547,6 +1547,8 @@
 											"pm.collectionVariables.set(\"name\", pm.response.json().name);\r",
 											"pm.collectionVariables.set(\"slug\", pm.response.json().slug);\r",
 											"\r",
+											"pm.collectionVariables.set(\"brand_id\", pm.response.json().id);\r",
+											"\r",
 											"\r",
 											"pm.test(\"Status code is 201\", function () {\r",
 											"    pm.response.to.have.status(201);\r",
@@ -1597,6 +1599,13 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"packages": {},
+										"type": "text/javascript"
+									}
 								}
 							],
 							"request": {
@@ -1604,7 +1613,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"newname\",\r\n  \"slug\": \"aaaa2\"\r\n}",
+									"raw": "{\r\n  \"name\": \"newname1\",\r\n  \"slug\": \"slug-1\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4064,8 +4073,7 @@
 											"// спочатку створюємо користувача в 12_POST_BrandCreate  - ДОДАТИ КОД\r",
 											"// беремо його айді і його видаляємо - ДОДАТИ КОД\r",
 											"\r",
-											"//impossible to perform, because I'm not an admin\r",
-											"\r",
+											"//impossible to perform, because because I don't have an Amin role\r",
 											"\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
@@ -4117,13 +4125,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/01jqdqk4ezzqhkb2vk85kfpptm",
+									"raw": "{{baseURL}}/brands/{{brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"01jqdqk4ezzqhkb2vk85kfpptm"
+										"{{brand_id}}"
 									]
 								}
 							},
@@ -4760,6 +4768,10 @@
 		},
 		{
 			"key": "slug",
+			"value": ""
+		},
+		{
+			"key": "brand_id",
 			"value": ""
 		}
 	]
