@@ -1573,11 +1573,11 @@
 											"  \"properties\": {\r",
 											"    \"name\": {\r",
 											"      \"type\": \"string\",\r",
-											"      \"enum\": [\"new brand9988\"]\r",
+											"      \"enum\": [\"newname4\"]\r",
 											"    },\r",
 											"    \"slug\": {\r",
 											"      \"type\": \"string\",\r",
-											"      \"enum\": [\"new-brand9988\"]\r",
+											"      \"enum\": [\"slug-4\"]\r",
 											"  },\r",
 											"    \"id\": {\r",
 											"      \"type\": \"string\"\r",
@@ -1617,7 +1617,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"newname1\",\r\n  \"slug\": \"slug-1\"\r\n}",
+									"raw": "{\r\n  \"name\": \"newname4\",\r\n  \"slug\": \"slug-4\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1637,15 +1637,15 @@
 							"response": []
 						},
 						{
-							"name": "13_POST_BrandCreateExistSlug",
+							"name": "21_POST_BrandCreateExistSlug",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//if we need to use setted variable slug in previous test 10, we can do it with this code:\r",
-											"//let slug = pm.collectionVariables.get(\"slug\");\r",
-											"// and after in this test - to check it in the scheme \"enum\"= [slug] - but here we have an error message\r",
+											"//if need to use setted variable slug in previous test 20, possible to do it with this code:\r",
+											"let slug = pm.collectionVariables.get(\"slug\");\r",
+											"// and after in this test - to check it in the schema \"enum\"= [slug] - but here we have an error message. So, don't check the schema \r",
 											"\r",
 											"\r",
 											"pm.test(\"Status code is 422\", function () {\r",
@@ -1683,7 +1683,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"new brand 111\",\r\n  \"slug\": \"new-brand98\"\r\n}\r\n\r\n",
+									"raw": "{\r\n  \"name\": \"new brand 1121\",\r\n  \"slug\": \"{{slug}}\"\r\n}\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
