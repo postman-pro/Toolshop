@@ -282,12 +282,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseURL}}/brands5",
+									"raw": "{{baseURL}}/brand",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
-										"brands5"
+										"brand"
 									]
 								}
 							},
