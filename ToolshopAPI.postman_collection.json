@@ -19,6 +19,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"pm.collectionVariables.set(\"get_brand_id\", pm.response.json()[0].id);\r",
 											"\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -41,7 +42,6 @@
 											"//Cache-Control – There is no need to manage data caching.\r",
 											"//charset – browsers and clients automatically handle encoding based on the server response.\r",
 											"//transfer-encoding – It is handled automatically.\r",
-											"\r",
 											"\r",
 											"pm.test(\"Response is Array and inside >=2 objects\", function () {\r",
 											"    let jsonData = pm.response.json();\r",
@@ -72,7 +72,8 @@
 											"\r",
 											"pm.test(\"schema is valid\", function() {\r",
 											"    pm.response.to.have.jsonSchema(schema);\r",
-											"});"
+											"});\r",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -300,9 +301,9 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//there is no information about this in Swagger\r",
+											"//there is no information about this case in Swagger\r",
 											"//but normally url should not be case sensitive\r",
-											"//so, here is a bug \"URL {{baseURL}}/BRANDS is case sensitive\"\r",
+											"//so, here is a bug \"URL https://api.practicesoftwaretesting.com/BRANDS is case sensitive\"\r",
 											"\r",
 											"\r",
 											"pm.test(\"Status code is 200\", function () {\r",
@@ -449,6 +450,8 @@
 									"script": {
 										"exec": [
 											"\r",
+											"\r",
+											"\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});\r",
@@ -498,6 +501,13 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"packages": {},
+										"type": "text/javascript"
+									}
 								}
 							],
 							"protocolProfileBehavior": {
@@ -519,13 +529,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/01jq6ctc97ddtdynfj5nz9kemy",
+									"raw": "{{baseURL}}/brands/{{get_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"01jq6ctc97ddtdynfj5nz9kemy"
+										"{{get_brand_id}}"
 									]
 								}
 							},
@@ -4779,6 +4789,10 @@
 		},
 		{
 			"key": "brand_id",
+			"value": ""
+		},
+		{
+			"key": "get_brand_id",
 			"value": ""
 		}
 	]
