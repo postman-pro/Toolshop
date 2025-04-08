@@ -450,8 +450,6 @@
 									"script": {
 										"exec": [
 											"\r",
-											"\r",
-											"\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});\r",
@@ -505,8 +503,11 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"packages": {},
-										"type": "text/javascript"
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -622,13 +623,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/01JPENQW9WDZBJ0NRTTM0V7XMA",
+									"raw": "{{baseURL}}/brands/{{get_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"01JPENQW9WDZBJ0NRTTM0V7XMA"
+										"{{get_brand_id}}"
 									]
 								}
 							},
