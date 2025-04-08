@@ -20,6 +20,9 @@
 									"script": {
 										"exec": [
 											"pm.collectionVariables.set(\"get_brand_id\", pm.response.json()[0].id);\r",
+											"pm.collectionVariables.set(\"get_brand_name\", pm.response.json()[0].name);\r",
+											"pm.collectionVariables.set(\"get_brand_slug\", pm.response.json()[0].slug);\r",
+											"\r",
 											"\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -924,7 +927,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/search?q=forgeflex+tools",
+									"raw": "{{baseURL}}/brands/search?q={{get_brand_name}}",
 									"host": [
 										"{{baseURL}}"
 									],
@@ -935,7 +938,7 @@
 									"query": [
 										{
 											"key": "q",
-											"value": "forgeflex+tools"
+											"value": "{{get_brand_name}}"
 										}
 									]
 								}
@@ -4794,6 +4797,14 @@
 		},
 		{
 			"key": "get_brand_id",
+			"value": ""
+		},
+		{
+			"key": "get_brand_name",
+			"value": ""
+		},
+		{
+			"key": "get_brand_slug",
 			"value": ""
 		}
 	]
