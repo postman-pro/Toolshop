@@ -125,9 +125,10 @@
 											"    pm.expect(pm.request.url.protocol).to.eql(\"http\")\r",
 											"});\r",
 											"\r",
-											"// EPECTED RESULT: no ER in Swagger but according to my opinion here should be status 301 Moved permanently\r",
+											"// no description for this case in Swagger but according to my opinion here should be status 301 Moved permanently\r",
 											"//AND let's say that in response body we should get the HTML => no need to check the Schema in this test\r",
-											"// so, there is 1 Bug and it's documented in Jira\r",
+											"// so, there is a Bug \"GET_Status code 200 instead of 301 for http request\"\r",
+											"\r",
 											"pm.test(\"Status code is 301\", function () {\r",
 											"    pm.response.to.have.status(301);\r",
 											"});\r",
@@ -159,9 +160,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseURL}}/brands",
+									"raw": "http://api.practicesoftwaretesting.com/brands",
+									"protocol": "http",
 									"host": [
-										"{{baseURL}}"
+										"api",
+										"practicesoftwaretesting",
+										"com"
 									],
 									"path": [
 										"brands"
