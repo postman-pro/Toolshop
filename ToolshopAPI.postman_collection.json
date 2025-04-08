@@ -184,7 +184,7 @@
 											"\r",
 											"\r",
 											"// There is no description of this error in the Swagger. \r",
-											"// Let's say ER is this status code\r",
+											"// Let's say ER is this status code 400\r",
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
