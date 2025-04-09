@@ -1079,7 +1079,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/search?q=forgeflex+tools",
+									"raw": "{{baseURL}}/brands/search?q={{get_brand_name}}",
 									"host": [
 										"{{baseURL}}"
 									],
@@ -1090,7 +1090,7 @@
 									"query": [
 										{
 											"key": "q",
-											"value": "forgeflex+tools"
+											"value": "{{get_brand_name}}"
 										}
 									]
 								}
