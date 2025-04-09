@@ -1402,7 +1402,7 @@
 											"//In this test let's say I got unexpected result - all available brands in the response\r",
 											"\r",
 											"//ER for this case is code 400 and will be good if there is a clear error message e.g.  \"error\": \"Malformed query parameter\"\r",
-											"//so, this is a bug \"All available brands in the response while /q=& instead of code 400\"\r",
+											"//so, this is a bug \"GET_All available brands in the response while /q=& instead of code 400\"\r",
 											"\r",
 											"\r",
 											"pm.test(\"Status code is 400\", function () {\r",
@@ -1562,8 +1562,10 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"pm.collectionVariables.set(\"name\", pm.response.json().name);\r",
-											"pm.collectionVariables.set(\"slug\", pm.response.json().slug);\r",
+											"pm.collectionVariables.set(\"post_name\", pm.response.json().name);\r",
+											"pm.collectionVariables.set(\"post_slug\", pm.response.json().slug);\r",
+											"pm.collectionVariables.set(\"post_id\", pm.response.json().id);\r",
+											"\r",
 											"\r",
 											"//I need to set a collection variable 'brand_id' with the value of the 'id' field from the JSON response\r",
 											"//because I will use it in another request below\r",
@@ -4805,6 +4807,18 @@
 		},
 		{
 			"key": "get_brand_slug",
+			"value": ""
+		},
+		{
+			"key": "post_name",
+			"value": ""
+		},
+		{
+			"key": "post_slug",
+			"value": ""
+		},
+		{
+			"key": "post_id",
 			"value": ""
 		}
 	]
