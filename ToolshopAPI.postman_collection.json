@@ -1182,7 +1182,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/search?q=NONAME",
+									"raw": "{{baseURL}}/brands/search?q=FORGEFLEX+TOOLS",
 									"host": [
 										"{{baseURL}}"
 									],
@@ -1193,7 +1193,7 @@
 									"query": [
 										{
 											"key": "q",
-											"value": "NONAME"
+											"value": "FORGEFLEX+TOOLS"
 										}
 									]
 								}
@@ -1322,7 +1322,7 @@
 											"//let's say I got unexpected result - all available brands in the response\r",
 											"\r",
 											"//ER for this case is code 400 and will be good if there is an error message e.g. \"message\": \"Malformed URI\"\r",
-											"//so, this is a bug \"All available brands in the response while /q=% instead of code 400\"\r",
+											"//so, this is a bug \"GET_All available brands in the response while /q=% instead of code 400\"\r",
 											"\r",
 											"\r",
 											"pm.test(\"Status code is 400\", function () {\r",
