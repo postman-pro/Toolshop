@@ -952,8 +952,8 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//Here ER: message Resource not found in the response, but there is an empty array\r",
-											"//so, I got a bug \"There is an empty array in the response in case invalid Brand name in GET request\"\r",
+											"//for this case ER: the message \"\"Resource not found\"\" in the response body, but there is an empty array\r",
+											"//so, I got a bug \"GET_There is an empty array in the response body in case invalid Brand name in url request\"\r",
 											"\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
