@@ -1702,7 +1702,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"new brand 1121\",\r\n  \"slug\": \"{{slug}}\"\r\n}\r\n\r\n",
+									"raw": "{\r\n  \"name\": \"new brand 1121\",\r\n  \"slug\": \"{{post_slug}}\"\r\n}\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
