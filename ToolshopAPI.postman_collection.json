@@ -1564,12 +1564,11 @@
 										"exec": [
 											"pm.collectionVariables.set(\"post_name\", pm.response.json().name);\r",
 											"pm.collectionVariables.set(\"post_slug\", pm.response.json().slug);\r",
-											"pm.collectionVariables.set(\"post_id\", pm.response.json().id);\r",
 											"\r",
 											"\r",
 											"//I need to set a collection variable 'brand_id' with the value of the 'id' field from the JSON response\r",
 											"//because I will use it in another request below\r",
-											"pm.collectionVariables.set(\"brand_id\", pm.response.json().id);\r",
+											"pm.collectionVariables.set(\"post_brand_id\", pm.response.json().id);\r",
 											"\r",
 											"pm.test(\"Status code is 201\", function () {\r",
 											"    pm.response.to.have.status(201);\r",
@@ -1664,8 +1663,8 @@
 									"script": {
 										"exec": [
 											"//need to use setted variable slug in previous test 20:\r",
-											"let slug = pm.collectionVariables.get(\"slug\");\r",
-											"// and after in this test - to check it in the schema \"enum\"= [slug] - but here we have an error message. So, don't check the schema \r",
+											"let slug = pm.collectionVariables.get(\"post_slug\");\r",
+											"// and after in this test - to check it in the schema \"enum\"= [post_slug] - but here we have an error message. So, don't check the schema \r",
 											"\r",
 											"pm.test(\"Status code is 422\", function () {\r",
 											"    pm.response.to.have.status(422);\r",
@@ -1694,6 +1693,13 @@
 										],
 										"type": "text/javascript",
 										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"packages": {},
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -1728,9 +1734,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//if we need to use setted variable slug in previous test 10, we can do it with this code:\r",
-											"//let name = pm.collectionVariables.get(\"name\");\r",
-											"// and after in this test - to check it in the scheme \"enum\"= [slug] - but here we have an error message\r",
+											"\r",
 											"\r",
 											"\r",
 											"pm.test(\"Status code is 422\", function () {\r",
@@ -1769,7 +1773,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"new brand 987\",\r\n  \"slug\": \"new-brand98777\"\r\n}",
+									"raw": "{\r\n  \"name\": \"new brand 987\",\r\n  \"slug\": \"{{post_name}}\"\r\n  }",
 									"options": {
 										"raw": {
 											"language": "json"
