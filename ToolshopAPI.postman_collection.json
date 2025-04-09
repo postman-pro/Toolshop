@@ -1636,7 +1636,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"newname4\",\r\n  \"slug\": \"slug-4\"\r\n}",
+									"raw": "{\r\n  \"name\": \"brand{{$randomInt}}\",\r\n  \"slug\": \"slug{{$randomInt}}\"\r\n}\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1698,8 +1698,11 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"packages": {},
-										"type": "text/javascript"
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -1708,7 +1711,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"new brand 1121\",\r\n  \"slug\": \"{{post_slug}}\"\r\n}\r\n\r\n",
+									"raw": "{\r\n  \"name\": \"name{{$randomInt}}\",\r\n  \"slug\": \"{{post_slug}}\"\r\n}\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1755,7 +1758,8 @@
 											"\r",
 											"//Swagger has no info about this case - need to add description about it\r",
 											"//let's say it's impossible to create a brand with the same name \r",
-											"//so, in this case we have a Bug\r",
+											"//so, in this case we have a Bug \"POST_Possible to create a brand with the same name\" \r",
+											"\r",
 											"//error message should be like this, for example\r",
 											"pm.test(\"error message is correct = A brand already exists with this name.\", function() {\r",
 											"        pm.expect(pm.response.json().name[0]).to.eql(\"A brand already exists with this name.\")\r",
@@ -1773,7 +1777,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"new brand 987\",\r\n  \"slug\": \"{{post_name}}\"\r\n  }",
+									"raw": "{\r\n  \"name\": \"{{post_name}}\",\r\n  \"slug\": \"slug{{$randomInt}}\"\r\n  }",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4823,6 +4827,10 @@
 		},
 		{
 			"key": "post_id",
+			"value": ""
+		},
+		{
+			"key": "post_brand_id",
 			"value": ""
 		}
 	]
