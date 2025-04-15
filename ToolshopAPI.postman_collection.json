@@ -1963,6 +1963,9 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"//Swagger has no info about these error messages - need to add description about it\r",
+											"//but in the response body I have understandable message for slug and code 422. So, new Brand is not created\r",
+											"\r",
 											"pm.test(\"Status code is 422\", function () {\r",
 											"    pm.response.to.have.status(422);\r",
 											"});\r",
@@ -1982,8 +1985,6 @@
 											"// For simplicity, here in my portfolio I check only a few paired negative values ​​in both mandatory fields. There are many more of these checks. \r",
 											"//To optimize the process, I used an online tool to generate pairs of values.\r",
 											"\r",
-											"//Swagger has no info about these error messages - need to add description about it\r",
-											"//but in the response body we have understandable message for slug and code 422. So, new Brand is not created\r",
 											"pm.test(\"SLUG error message is correct = The slug field must be a string.\", function() {\r",
 											"        pm.expect(pm.response.json().slug[0]).to.eql(\"The slug field must be a string.\")\r",
 											"})\r",
