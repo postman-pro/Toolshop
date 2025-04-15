@@ -1587,8 +1587,6 @@
 											"let post_name = pm.variables.get(\"post_name\"); // Define post_name variable\r",
 											"let post_slug = pm.variables.get(\"post_slug\");\r",
 											"\r",
-											"//in Swagger name, slug, id are not required\r",
-											"//but we have only these 3 fields in the response, so let's check them as required\r",
 											"\r",
 											"let schema =\r",
 											"{\r",
@@ -1673,8 +1671,8 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// =====let post_slug = pm.collectionVariables.get(\"post_slug\"); // get collection variable \r",
-											"//======let post_name = pm.variables.get(\"post_name\"); // get variable inside current request\r",
+											"//in the Swagger there is no info about this case - need to add description about it\r",
+											"//but in the response body I got understandable message and code 422. So, new Brand is not created\r",
 											"\r",
 											"pm.test(\"Status code is 422\", function () {\r",
 											"    pm.response.to.have.status(422);\r",
@@ -1691,9 +1689,6 @@
 											"pm.test(\"header Content-Type=application/json\", function () {\r",
 											"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');\r",
 											"});\r",
-											"\r",
-											"//in the Swagger there is no info about this case - need to add description about it\r",
-											"//but in the response body I got understandable message and code 422. So, new Brand is not created\r",
 											"\r",
 											"pm.test(\"error message is correct = A brand already exists with this slug.\", function () {\r",
 											"    pm.expect(pm.response.json().slug[0]).to.eql(\"A brand already exists with this slug.\")\r",
@@ -1752,8 +1747,9 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"\r",
-											"\r",
+											"//Swagger has no info about this case - need to add description about it\r",
+											"//let's say it's impossible to create a brand with the same name \r",
+											"//so, in this case we have a Bug \"POST_Possible to create a brand with the same name\" \r",
 											"\r",
 											"pm.test(\"Status code is 422\", function () {\r",
 											"    pm.response.to.have.status(422);\r",
@@ -1771,9 +1767,6 @@
 											"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');\r",
 											"});\r",
 											"\r",
-											"//Swagger has no info about this case - need to add description about it\r",
-											"//let's say it's impossible to create a brand with the same name \r",
-											"//so, in this case we have a Bug \"POST_Possible to create a brand with the same name\" \r",
 											"\r",
 											"//error message should be like this, for example\r",
 											"pm.test(\"error message is correct = A brand already exists with this name.\", function() {\r",
@@ -1785,6 +1778,20 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"//in the request body I need to use slug different from the previous test 20_POST_BrandCreate\r",
+											"//so, here I set a new variable \"diff_post_slug\"\r",
+											"\r",
+											"let randomInt = Math.floor(Math.random() * 10000);\r",
+											"pm.collectionVariables.set(\"diff_post_slug\", `Brand${randomInt}`);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
 							"request": {
@@ -1792,7 +1799,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"{{post_name}}\",\r\n  \"slug\": \"slug{{$randomInt}}\"\r\n  }",
+									"raw": "{\r\n  \"name\": \"{{post_name}}\",\r\n  \"slug\": \"slug{{diff_post_slug}}\"\r\n  }",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4850,6 +4857,10 @@
 		},
 		{
 			"key": "diff_post_name",
+			"value": ""
+		},
+		{
+			"key": "diff_post_slug",
 			"value": ""
 		}
 	]
