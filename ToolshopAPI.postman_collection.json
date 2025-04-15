@@ -2032,6 +2032,9 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"//Swagger has no info about these error messages - need to add description about it\r",
+											"//but in the response body I have understandable message for name and slug and code 422. So, new Brand is not created\r",
+											"\r",
 											"pm.test(\"Status code is 422\", function () {\r",
 											"    pm.response.to.have.status(422);\r",
 											"});\r",
@@ -2051,8 +2054,7 @@
 											"// For simplicity, here in my portfolio I check only a few paired negative values ​​in both mandatory fields. There are many more of these checks. \r",
 											"//To optimize the process, I used an online tool to generate pairs of values.\r",
 											"\r",
-											"//Swagger has no info about these error messages - need to add description about it\r",
-											"//but in the response body we have understandable message for name and slug and code 422. So, new Brand is not created\r",
+											"\r",
 											"pm.test(\"SLUG error message is correct = The slug field is required.\", function() {\r",
 											"        pm.expect(pm.response.json().slug[0]).to.eql(\"The slug field is required.\")\r",
 											"})\r",
@@ -2102,6 +2104,9 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"//Swagger has no info about these error messages - need to add description about it\r",
+											"//but in the response body I got understandable message for name and slug and code 422. So, new Brand is not created\r",
+											"\r",
 											"pm.test(\"Status code is 422\", function () {\r",
 											"    pm.response.to.have.status(422);\r",
 											"});\r",
@@ -2121,8 +2126,7 @@
 											"// For simplicity, here in my portfolio I check only a few paired negative values ​​in both mandatory fields. There are many more of these checks. \r",
 											"//To optimize the process, I used an online tool to generate pairs of values.\r",
 											"\r",
-											"//Swagger has no info about these error messages - need to add description about it\r",
-											"//but in the response body we have understandable message for name and slug and code 422. So, new Brand is not created\r",
+											"\r",
 											"pm.test(\"SLUG error message is correct = The slug field must only contain letters, numbers, dashes, and underscores.\", function() {\r",
 											"        pm.expect(pm.response.json().slug[0]).to.eql(\"The slug field must only contain letters, numbers, dashes, and underscores.\")\r",
 											"})\r",
@@ -2257,24 +2261,27 @@
 											"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json;charset=UTF-8');\r",
 											"});\r",
 											"\r",
+											"let uppercase_post_name = pm.variables.get(\"uppercase_post_name\"); // Define uppercase_post_name variable\r",
+											"let uppercase_post_slug = pm.variables.get(\"uppercase_post_slug\");\r",
+											"\r",
 											"let schema =\r",
 											"{\r",
 											"  \"type\": \"object\",\r",
 											"  \"properties\": {\r",
 											"    \"name\": {\r",
 											"      \"type\": \"string\",\r",
-											"      \"enum\": [\"new BRANDbrand9988\"]\r",
+											"      \"enum\": [uppercase_post_name]\r",
 											"    },\r",
 											"    \"slug\": {\r",
 											"      \"type\": \"string\",\r",
-											"      \"enum\": [\"new-BRANDbrand9988\"]\r",
+											"      \"enum\": [uppercase_post_slug]\r",
 											"  },\r",
 											"    \"id\": {\r",
 											"      \"type\": \"string\"\r",
 											"    }\r",
 											"  },\r",
 											"  //in Swagger name, slug, id are not required\r",
-											"  //but we have only 3 fields in the response, so let's check them as required\r",
+											"  //but I have only 3 fields in the response, so let's check them as required\r",
 											"  \"required\": [\r",
 											"    \"name\",\r",
 											"    \"slug\",\r",
@@ -2290,6 +2297,18 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"let randomInt = Math.floor(Math.random() * 10000);\r",
+											"pm.collectionVariables.set(\"uppercase_post_name\", `BRAND${randomInt}`);\r",
+											"pm.collectionVariables.set(\"uppercase_post_slug\", `BRAND-${randomInt}`);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
 							"request": {
@@ -2297,7 +2316,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"new BRANDbrand9988\",\r\n  \"slug\": \"new-BRANDbrand9988\"\r\n}",
+									"raw": "{\r\n  \"name\": \"{{uppercase_post_name}}\",\r\n  \"slug\": \"{{uppercase_post_slug}}\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4862,6 +4881,14 @@
 		},
 		{
 			"key": "diff_post_slug",
+			"value": ""
+		},
+		{
+			"key": "uppercase_post_name",
+			"value": ""
+		},
+		{
+			"key": "uppercase_post_slug",
 			"value": ""
 		}
 	]
