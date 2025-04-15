@@ -2342,6 +2342,8 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"//in the Swagger there is no info about this case - need to add description about it\r",
+											"//but in the response I got code 201 Created. So, new Brand is created correctly\r",
 											"\r",
 											"pm.test(\"Status code is 201\", function () {\r",
 											"    pm.response.to.have.status(201);\r",
@@ -2410,7 +2412,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"slug\": \"new-brand99881\",\r\n    \"name\": \"new brand99881\"\r\n}",
+									"raw": "{\r\n  \"slug\": \"new-brand99881\",\r\n  \"name\": \"new brand99881\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
