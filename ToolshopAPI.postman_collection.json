@@ -2452,7 +2452,7 @@
 										"exec": [
 											"//This test failed with code 422 and understandable error messages\r",
 											"//this is not important bug and there is no info about it in Swagger  \r",
-											"//so, we can create a bag \"Field names are case sensitive\" with Severity S4 or S5 (Minor or Trivial)\r",
+											"//so, I can create a bag \"Field names are case sensitive\" with Severity S4 or S5 (Minor or Trivial)\r",
 											"\r",
 											"pm.test(\"Status code is 201\", function () {\r",
 											"    pm.response.to.have.status(201);\r",
@@ -2469,6 +2469,9 @@
 											"pm.test(\" header  Content-Type=application/json;charset=UTF-8\", function () {\r",
 											"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json;charset=UTF-8');\r",
 											"});\r",
+											"\r",
+											"let uppercase_field_NAME_post_name = pm.variables.get(\"uppercase_field_NAME_post_name\");\r",
+											"let uppercase_field_SLUG_post_slug = pm.variables.get(\"uppercase_field_SLUG_post_slug\");\r",
 											"\r",
 											"let schema =\r",
 											"{\r",
@@ -2503,6 +2506,20 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"//I create a new variables for this test\r",
+											"\r",
+											"let randomInt = Math.floor(Math.random() * 10000);\r",
+											"pm.collectionVariables.set(\"uppercase_field_NAME_post_name\", `Brand${randomInt}`);\r",
+											"pm.collectionVariables.set(\"uppercase_field_SLUG_post_slug\", `brand-${randomInt}`);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
 							"request": {
@@ -2510,7 +2527,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"NAME\": \"new brand991\",\r\n  \"SLUG\": \"new-brand991\"\r\n}",
+									"raw": "{\r\n  \"NAME\": \"{{uppercase_field_NAME_post_name}}\",\r\n  \"SLUG\": \"{{uppercase_field_SLUG_post_slug}}\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4911,6 +4928,14 @@
 		},
 		{
 			"key": "fields_order_variation_post_slug",
+			"value": ""
+		},
+		{
+			"key": "uppercase_field_NAME_post_name",
+			"value": ""
+		},
+		{
+			"key": "uppercase_field_SLUG_post_slug",
 			"value": ""
 		}
 	]
