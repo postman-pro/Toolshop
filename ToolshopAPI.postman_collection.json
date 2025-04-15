@@ -1562,6 +1562,8 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"//I need to set a collection variable 'post_brand_id'\r",
+											"//because I will use it in another request below\r",
 											"let jsonData = pm.response.json();\r",
 											"\r",
 											"pm.collectionVariables.set(\"post_brand_id\", jsonData.id);\r",
@@ -1584,6 +1586,9 @@
 											"\r",
 											"let post_name = pm.variables.get(\"post_name\"); // Define post_name variable\r",
 											"let post_slug = pm.variables.get(\"post_slug\");\r",
+											"\r",
+											"//in Swagger name, slug, id are not required\r",
+											"//but we have only these 3 fields in the response, so let's check them as required\r",
 											"\r",
 											"let schema =\r",
 											"{\r",
@@ -1623,9 +1628,14 @@
 									"listen": "prerequest",
 									"script": {
 										"exec": [
+											"//I need to set a collection variables 'post_name', 'post_slug' with random numbers\r",
+											"//because I will use them in another request below\r",
+											"\r",
 											"let randomInt = Math.floor(Math.random() * 10000);\r",
 											"pm.collectionVariables.set(\"post_name\", `Brand${randomInt}`);\r",
-											"pm.collectionVariables.set(\"post_slug\", `brand-${randomInt}`);"
+											"pm.collectionVariables.set(\"post_slug\", `brand-${randomInt}`);\r",
+											"\r",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1700,7 +1710,11 @@
 									"listen": "prerequest",
 									"script": {
 										"exec": [
-											""
+											"//in the body I need to use name different from the previous test 20_POST_BrandCreate\r",
+											"//so, here I set a new variable \"diff_post_name\"\r",
+											"\r",
+											"let randomInt = Math.floor(Math.random() * 10000);\r",
+											"pm.collectionVariables.set(\"diff_post_name\", `Brand${randomInt}`);"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1712,7 +1726,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"name{{$randomInt}}\",\r\n  \"slug\": \"{{post_slug}}\"\r\n}\r\n\r\n",
+									"raw": "{\r\n  \"name\": \"name{{diff_post_name}}\",\r\n  \"slug\": \"{{post_slug}}\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4832,6 +4846,10 @@
 		},
 		{
 			"key": "post_brand_id",
+			"value": ""
+		},
+		{
+			"key": "diff_post_name",
 			"value": ""
 		}
 	]
