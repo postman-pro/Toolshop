@@ -2555,7 +2555,7 @@
 										"exec": [
 											"//there is no info in Swagger about max length for both fields, so let's check it\r",
 											"//start from 160 letters\r",
-											"//in this case we got understandable error message\r",
+											"//in this case I got understandable error message\r",
 											"\r",
 											"pm.test(\"Status code is 201\", function () {\r",
 											"    pm.response.to.have.status(201);\r",
@@ -2639,7 +2639,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//in this case we got understandable error message\r",
+											"//in this case I got understandable error message\r",
 											"//Error 422 is expected\r",
 											"//For slug field there is two error messages, I'll check it later separately\r",
 											"\r",
@@ -2706,9 +2706,9 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//here I got error code 422 with incorrect error message\r",
+											"//here I got an error code 422 with incorrect error message\r",
 											"//because max length is 120 letters and this test should Pass\r",
-											"//so, I can create a bug \"Response error code 422 while field values have max length 120 characters \"\r",
+											"//so, I create a bug \"POST_Response error code 422 while field values have max length 120 characters\"\r",
 											"\r",
 											"pm.test(\"Status code is 201\", function () {\r",
 											"    pm.response.to.have.status(201);\r",
@@ -2794,7 +2794,7 @@
 										"exec": [
 											"//here I got an error code 422 with incorrect error message\r",
 											"//because max length is 120 letters and this test should Pass\r",
-											"//so, I can create a bug \"Response error code 422 while field values have max length 120 and 119 characters \"\r",
+											"//so, I create a bug \"POST_Response error code 422 while field values have length 119 characters\"\r",
 											"\r",
 											"\r",
 											"pm.test(\"Status code is 201\", function () {\r",
@@ -2942,7 +2942,7 @@
 									"script": {
 										"exec": [
 											"//in response I got not clear error message\r",
-											"//so, here is a bug \"Incorrect error message in case not well formed JSON:Comma at the end\"\r",
+											"//so, here is a bug \"POST_Incorrect error message in case not well formed JSON:Comma at the end\"\r",
 											"\r",
 											"\r",
 											"pm.test(\"Status code is 422\", function () {\r",
@@ -3003,7 +3003,7 @@
 									"script": {
 										"exec": [
 											"//in response I got not clear error message\r",
-											"//so, here is a bug \"Incorrect error message in case not well formed JSON:NoCommaAtAll\"\r",
+											"//so, here is a bug \"POST_Incorrect error message in case not well formed JSON:NoCommaAtAll\"\r",
 											"\r",
 											"\r",
 											"pm.test(\"Status code is 422\", function () {\r",
@@ -3064,7 +3064,7 @@
 									"script": {
 										"exec": [
 											"//in response I got not clear error message\r",
-											"//so, here is a bug \"Incorrect error message in case not well formed JSON:IncompleteKey-ValueFormat\"\r",
+											"//so, here is a bug \"POST_Incorrect error message in case not well formed JSON:IncompleteKey-ValueFormat\"\r",
 											"\r",
 											"\r",
 											"pm.test(\"Status code is 422\", function () {\r",
@@ -3091,6 +3091,17 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"let randomInt = Math.floor(Math.random() * 10000);\r",
+											"pm.collectionVariables.set(\"incomplete_key-value_post_name\", `Brand${randomInt}`);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
 							"request": {
@@ -3098,7 +3109,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"new brand9988\",\r\n  \"slug\"\r\n}",
+									"raw": "{\r\n  \"name\": \"{{incomplete_key-value_post_name}}\",\r\n  \"slug\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4936,6 +4947,10 @@
 		},
 		{
 			"key": "uppercase_field_SLUG_post_slug",
+			"value": ""
+		},
+		{
+			"key": "incomplete_key-value_post_name",
 			"value": ""
 		}
 	]
