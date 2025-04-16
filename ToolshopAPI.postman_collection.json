@@ -2908,6 +2908,18 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"let randomInt = Math.floor(Math.random() * 10000);\r",
+											"pm.collectionVariables.set(\"array_instead_object_post_name\", `Brand${randomInt}`);\r",
+											"pm.collectionVariables.set(\"array_instead_object_post_slug\", `Brand${randomInt}`);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
 							"request": {
@@ -2915,7 +2927,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "[\r\n  \"name\": \"new brand9988\",\r\n  \"slug\": \"new-brand9988\"\r\n]",
+									"raw": "[\r\n  \"name\": \"{{array_instead_object_post_name}}\",\r\n  \"slug\": \"{{array_instead_object_post_slug}}\"\r\n]",
 									"options": {
 										"raw": {
 											"language": "json"
