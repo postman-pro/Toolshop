@@ -3485,13 +3485,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/01JPW5RPPF64Y1Z04JRC3NTH4P",
+									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"01JPW5RPPF64Y1Z04JRC3NTH4P"
+										"{{post_brand_id}}"
 									]
 								}
 							},
