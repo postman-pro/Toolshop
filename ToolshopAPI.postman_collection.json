@@ -3201,6 +3201,18 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"let randomInt = Math.floor(Math.random() * 10000);\r",
+											"pm.collectionVariables.set(\"put_name\", `Brand${randomInt}`);\r",
+											"pm.collectionVariables.set(\"put_slug\", `brand-${randomInt}`);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
 							"request": {
@@ -3208,7 +3220,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"new\",\r\n  \"slug\": \"a\"\r\n}",
+									"raw": "{\r\n  \"name\": \"{{put_name}}\",\r\n  \"slug\": \"{{put_slug}}\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3216,13 +3228,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/01JPW5RPPF64Y1Z04JRC3NTH4P",
+									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"01JPW5RPPF64Y1Z04JRC3NTH4P"
+										"{{post_brand_id}}"
 									]
 								}
 							},
@@ -4987,6 +4999,14 @@
 		},
 		{
 			"key": "incomplete_key-value_post_name",
+			"value": ""
+		},
+		{
+			"key": "put_name",
+			"value": ""
+		},
+		{
+			"key": "put_slug",
 			"value": ""
 		}
 	]
