@@ -3336,7 +3336,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"new\",\r\n  \"slug\": \"a\"\r\n}",
+									"raw": "{\r\n  \"name\": \"name-method-not-allowed\",\r\n  \"slug\": \"slug-method-not-allowed\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
