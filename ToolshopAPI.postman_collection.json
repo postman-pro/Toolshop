@@ -3879,7 +3879,7 @@
 											"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');\r",
 											"});\r",
 											"\r",
-											"//according to documentation JSON is case sensitive, but for simplicity let's say in the response should be message like this:\r",
+											"//for simplicity let's say in the response should be message like this:\r",
 											"pm.test(\"Message is correct = success: true\", function()\r",
 											"    {\r",
 											"        pm.expect(pm.response.json().success).to.eql(true);\r",
@@ -3891,6 +3891,18 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"let randomInt = Math.floor(Math.random() * 10000);\r",
+											"pm.collectionVariables.set(\"field_order_variation_put_name\", `name${randomInt}`);\r",
+											"pm.collectionVariables.set(\"field_order_variation_put_slug\", `brand-${randomInt}`);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
 							"request": {
@@ -3898,7 +3910,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"slug\": \"new-br963\",\r\n  \"name\": \"new963\"\r\n}",
+									"raw": "{\r\n  \"slug\": \"{{field_order_variation_put_slug}}\",\r\n  \"name\": \"{{field_order_variation_put_name}}\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3906,13 +3918,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/01jq6ctc97ddtdynfj5nz9kemy",
+									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"01jq6ctc97ddtdynfj5nz9kemy"
+										"{{post_brand_id}}"
 									]
 								}
 							},
@@ -5056,6 +5068,14 @@
 		},
 		{
 			"key": "uppercase_field_names_put_SLUG",
+			"value": ""
+		},
+		{
+			"key": "field_order_variation_put_name",
+			"value": ""
+		},
+		{
+			"key": "field_order_variation_put_slug",
 			"value": ""
 		}
 	]
