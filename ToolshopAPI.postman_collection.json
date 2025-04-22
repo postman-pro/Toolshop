@@ -3369,6 +3369,7 @@
 											"//Swagger has no info about these error messages and ER in this case - need to add description about it into documentation\r",
 											"//but in the response body we have not clear error messages for name and slug and code 422. So, Brand isn't updated\r",
 											"//also in this case there are bugs: \"Not clear message in case field name is empty\" and \"No any error message in case field slug is absent\"\r",
+											"//should be an error message for slug as well\r",
 											"\r",
 											"//let's say code 422 is expected\r",
 											"pm.test(\"Status code is 422\", function () {\r",
@@ -3542,13 +3543,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/01JPW5RPPF64Y1Z04JRC3NTH4P",
+									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"01JPW5RPPF64Y1Z04JRC3NTH4P"
+										"{{post_brand_id}}"
 									]
 								}
 							},
