@@ -3700,8 +3700,8 @@
 											"\r",
 											"\r",
 											"//Swagger has no info about ER in this case - need to add description about it into documentation\r",
-											"//but in the response body I got message about incorrect slug, so this is a Bug:\r",
-											"// \"PUT_Code 422 in case uppercase field name values\"\r",
+											"//but in the response body I got clear message  about Brand is not updated, so let's say this is a Bug:\r",
+											"// \"PUT_Brand is not updated in case uppercase field name values\"\r",
 											"\r",
 											"\r",
 											"//let's say code 200 is expected\r",
@@ -3813,6 +3813,18 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"let randomInt = Math.floor(Math.random() * 10000);\r",
+											"pm.collectionVariables.set(\"uppercase_field_names_put_NAME\", `name${randomInt}`);\r",
+											"pm.collectionVariables.set(\"uppercase_field_names_put_SLUG\", `brand-${randomInt}`);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
 							"request": {
@@ -3820,7 +3832,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"NAME\": \"new992777\",\r\n  \"SLUG\": \"new-br992777\"\r\n}",
+									"raw": "{\r\n  \"NAME\": \"{{uppercase_field_names_put_NAME}}\",\r\n  \"SLUG\": \"{{uppercase_field_names_put_SLUG}}\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3828,13 +3840,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/01JQ68G3D196QHQGFTFJM2QM82",
+									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"01JQ68G3D196QHQGFTFJM2QM82"
+										"{{post_brand_id}}"
 									]
 								}
 							},
@@ -5036,6 +5048,14 @@
 		},
 		{
 			"key": "1_put_slug",
+			"value": ""
+		},
+		{
+			"key": "uppercase_field_names_put_NAME",
+			"value": ""
+		},
+		{
+			"key": "uppercase_field_names_put_SLUG",
 			"value": ""
 		}
 	]
