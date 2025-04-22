@@ -3738,13 +3738,11 @@
 									"listen": "prerequest",
 									"script": {
 										"exec": [
-											"//let randomInt = Math.floor(Math.random() * 10000);\r",
-											"//pm.collectionVariables.set(\"uppercase_put_name\", 'NAME${randomInt}');\r",
-											"//pm.collectionVariables.set(\"uppercase_put_slug\", 'BRAND-${randomInt}');\r",
-											"\r",
 											"let randomInt = Math.floor(Math.random() * 10000);\r",
-											"pm.collectionVariables.set(\"1_put_name\", `Brand${randomInt}`);\r",
-											"pm.collectionVariables.set(\"1_put_slug\", `brand-${randomInt}`);"
+											"pm.collectionVariables.set(\"uppercase_put_name\", `NAME${randomInt}`);\r",
+											"pm.collectionVariables.set(\"uppercase_put_slug\", `BRAND-${randomInt}`);\r",
+											"\r",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
