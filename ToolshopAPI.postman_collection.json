@@ -4006,10 +4006,10 @@
 										"exec": [
 											"//Swagger has no info about ER in this case - need to add description about it into documentation\r",
 											"//in the response body I got clear messages about Brand is updated - this is a bug\r",
-											"//\"PUT_Incorrect response in case if an array is sent in the request instead of an object\"\r",
+											"//\"PUT_Brand is updated in case not well formed JSON: comma at the end\"\r",
 											"\r",
 											"//let's say code 400 is expected\r",
-											"//bug \"PUT_Code 200 in the response in case if an array is sent in the request instead of an object\"\r",
+											"//bug \"PUT_Code 200 in the response in case not well formed JSON: comma at the end\"\r",
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
@@ -4027,7 +4027,7 @@
 											"});\r",
 											"\r",
 											"//let's say should be an error message like this:\r",
-											"//so, bug \"PUT_No error message in the response in case if an array is sent in the request instead of an object\"\r",
+											"//so, bug \"PUT_No error message in the response in case not well formed JSON: comma at the end\"\r",
 											"pm.test(\"Error message is correct = Invalid JSON format: expected an object but received an array\", function () {\r",
 											"    pm.expect(pm.response.json().message).to.eql(\"Invalid JSON format: expected an object but received an array\")\r",
 											"    })\r",
@@ -4044,7 +4044,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "[\r\n  \"slug\": \"new-br963\",\r\n  \"name\": \"new963\",\r\n]",
+									"raw": "{\r\n  \"slug\": \"new-br965\",\r\n  \"name\": \"new965\",\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4052,13 +4052,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/01jq6ctc97ddtdynfj5nz9kemy",
+									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"01jq6ctc97ddtdynfj5nz9kemy"
+										"{{post_brand_id}}"
 									]
 								}
 							},
