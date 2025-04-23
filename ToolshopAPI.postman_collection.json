@@ -4140,7 +4140,7 @@
 										"exec": [
 											"//Swagger has no info about ER in this case - need to add description about it into documentation\r",
 											"//in the response body I got clear messages about Brand is updated \r",
-											"//this is a bug \"PUT_Incorrect response in case if an incomplete JSON is sent\"\r",
+											"//this is a bug \"PUT_Brand is updated in case if an incomplete JSON is sent\"\r",
 											"\r",
 											"//let's say code 400 is expected\r",
 											"//bug \"PUT_Code 200 in the response in case if an incomplete JSON is sent\"\r",
@@ -4186,13 +4186,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/01jq6m1kpjbpsn1fmc3h5sq9d0",
+									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"01jq6m1kpjbpsn1fmc3h5sq9d0"
+										"{{post_brand_id}}"
 									]
 								}
 							},
