@@ -4028,8 +4028,8 @@
 											"\r",
 											"//let's say should be an error message like this:\r",
 											"//so, bug \"PUT_No error message in the response in case not well formed JSON: comma at the end\"\r",
-											"pm.test(\"Error message is correct = Invalid JSON format: expected an object but received an array\", function () {\r",
-											"    pm.expect(pm.response.json().message).to.eql(\"Invalid JSON format: expected an object but received an array\")\r",
+											"pm.test(\"Error message is correct = Invalid JSON format\", function () {\r",
+											"    pm.expect(pm.response.json().message).to.eql(\"Invalid JSON format\")\r",
 											"    })\r",
 											"\r",
 											""
@@ -4073,10 +4073,10 @@
 										"exec": [
 											"//Swagger has no info about ER in this case - need to add description about it into documentation\r",
 											"//in the response body I got clear messages about Brand is updated - this is a bug\r",
-											"//\"PUT_Incorrect response in case if comma at the end in request body\"\r",
+											"//\"PUT_Brand is updated in case not well formed JSON in request: no comma at all\"\r",
 											"\r",
 											"//let's say code 400 is expected\r",
-											"//bug \"PUT_Code 200 in the response in case if comma at the end in request body\"\r",
+											"//bug \"PUT_Code 200 in the response in case not well formed JSON: no comma at all\"\r",
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
@@ -4093,8 +4093,8 @@
 											"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');\r",
 											"});\r",
 											"\r",
-											"//let's say should be the error message like this:\r",
-											"//so, bug \"PUT_No error message in the response in case  if comma at the end in request body\"\r",
+											"//let's say should be an error message like this:\r",
+											"//so, bug \"PUT_No error message in the response in case not well formed JSON: no comma at all\"\r",
 											"pm.test(\"Error message is correct = Invalid JSON format\", function () {\r",
 											"    pm.expect(pm.response.json().message).to.eql(\"Invalid JSON format\")\r",
 											"    })\r",
@@ -4111,7 +4111,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "[\r\n  \"slug\": \"new-br963\"\r\n  \"name\": \"new963\"\r\n]",
+									"raw": "{\r\n  \"slug\": \"new-br96\"\r\n  \"name\": \"new96\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4119,13 +4119,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/01jq6m1kpjbpsn1fmc3h5sq9d0",
+									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"01jq6m1kpjbpsn1fmc3h5sq9d0"
+										"{{post_brand_id}}"
 									]
 								}
 							},
