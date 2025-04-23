@@ -3985,13 +3985,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/01jq6ctc97ddtdynfj5nz9kemy",
+									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"01jq6ctc97ddtdynfj5nz9kemy"
+										"{{post_brand_id}}"
 									]
 								}
 							},
