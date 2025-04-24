@@ -3970,6 +3970,18 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"let randomInt = Math.floor(Math.random() * 10000);\r",
+											"pm.collectionVariables.set(\"array_instead_object_put_name\", `name${randomInt}`);\r",
+											"pm.collectionVariables.set(\"array_instead_object_put_slug\", `brand-${randomInt}`);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
 							"request": {
@@ -3977,7 +3989,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "[\r\n  \"slug\": \"new-br963\",\r\n  \"name\": \"new963\"\r\n]",
+									"raw": "[\r\n  \"slug\": \"array_instead_object_put_slug\",\r\n  \"name\": \"array_instead_object_put_name\"\r\n]",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4206,7 +4218,6 @@
 									"script": {
 										"exec": [
 											"//Swagger has no info about ER in this case - need to add description about it into documentation\r",
-											"//in the response body I got clear messages about Brand is not updated \r",
 											"\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -4248,13 +4259,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/01jq6ctc97ddtdynfj5nz9kemy",
+									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"01jq6ctc97ddtdynfj5nz9kemy"
+										"{{post_brand_id}}"
 									]
 								}
 							},
@@ -5076,6 +5087,14 @@
 		},
 		{
 			"key": "field_order_variation_put_slug",
+			"value": ""
+		},
+		{
+			"key": "array_instead_object_put_name",
+			"value": ""
+		},
+		{
+			"key": "array_instead_object_put_slug",
 			"value": ""
 		}
 	]
