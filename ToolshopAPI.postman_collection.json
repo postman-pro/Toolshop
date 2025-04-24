@@ -4049,6 +4049,18 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"let randomInt = Math.floor(Math.random() * 10000);\r",
+											"pm.collectionVariables.set(\"comma_at_the_end_put_name\", `name${randomInt}`);\r",
+											"pm.collectionVariables.set(\"comma_at_the_end_put_slug\", `brand-${randomInt}`);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
 							"request": {
@@ -4056,7 +4068,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"slug\": \"new-br965\",\r\n  \"name\": \"new965\",\r\n}",
+									"raw": "{\r\n  \"slug\": \"comma_at_the_end_put_slug\",\r\n  \"name\": \"comma_at_the_end_put_name\",\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
