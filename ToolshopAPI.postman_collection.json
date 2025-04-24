@@ -3989,7 +3989,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "[\r\n  \"slug\": \"array_instead_object_put_slug\",\r\n  \"name\": \"array_instead_object_put_name\"\r\n]",
+									"raw": "[\r\n  \"slug\": \"{{array_instead_object_put_slug}}\",\r\n  \"name\": \"{{array_instead_object_put_name}}\"\r\n]",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4068,7 +4068,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"slug\": \"comma_at_the_end_put_slug\",\r\n  \"name\": \"comma_at_the_end_put_name\",\r\n}",
+									"raw": "{\r\n  \"slug\": \"{{comma_at_the_end_put_slug}}\",\r\n  \"name\": \"{{comma_at_the_end_put_name}}\",\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4128,6 +4128,18 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"let randomInt = Math.floor(Math.random() * 10000);\r",
+											"pm.collectionVariables.set(\"no_comma_at_all_put_name\", `name${randomInt}`);\r",
+											"pm.collectionVariables.set(\"no_comma_at_all_put_slug\", `brand-${randomInt}`);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
 							"request": {
@@ -4135,7 +4147,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"slug\": \"new-br96\"\r\n  \"name\": \"new96\"\r\n}",
+									"raw": "{\r\n  \"slug\": \"{{no_comma_at_all_put_slug}}\"\r\n  \"name\": \"{{no_comma_at_all_put_name}}\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
