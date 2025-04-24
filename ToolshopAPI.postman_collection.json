@@ -4207,6 +4207,18 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"let randomInt = Math.floor(Math.random() * 10000);\r",
+											"pm.collectionVariables.set(\"incomplete_key-value_format_put_name\", `name${randomInt}`);\r",
+											"pm.collectionVariables.set(\"incomplete_key-value_format_put_slug\", `brand-${randomInt}`);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
 							"request": {
@@ -4214,7 +4226,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"new brand9988\",\r\n  \"slug\"\r\n}",
+									"raw": "{\r\n  \"name\": \"{{incomplete_key-value_format_put_name}}\",\r\n  \"slug\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
