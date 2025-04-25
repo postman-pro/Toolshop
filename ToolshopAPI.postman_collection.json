@@ -2240,13 +2240,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/{{get_brand_id}}",
+									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"{{get_brand_id}}"
+										"{{post_brand_id}}"
 									]
 								}
 							},
@@ -2439,13 +2439,13 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{baseURL}}/brands/01JNR7MJD4VDVJBXH1TJXFYT8T",
+									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"01JNR7MJD4VDVJBXH1TJXFYT8T"
+										"{{post_brand_id}}"
 									]
 								}
 							},
