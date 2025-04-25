@@ -22,7 +22,6 @@
 											"//I need to set a collection variable 'post_brand_id'\r",
 											"//because I will use it in another request below\r",
 											"let jsonData = pm.response.json();\r",
-											"\r",
 											"pm.collectionVariables.set(\"post_brand_id\", jsonData.id);\r",
 											"\r",
 											"pm.test(\"Status code is 201\", function () {\r",
@@ -2541,7 +2540,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/search?q={{get_brand_name}}",
+									"raw": "{{baseURL}}/brands/search?q={{post_name}}",
 									"host": [
 										"{{baseURL}}"
 									],
@@ -2552,7 +2551,7 @@
 									"query": [
 										{
 											"key": "q",
-											"value": "{{get_brand_name}}"
+											"value": "{{post_name}}"
 										}
 									]
 								}
