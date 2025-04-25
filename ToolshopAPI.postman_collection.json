@@ -2167,7 +2167,7 @@
 										"exec": [
 											"//I have ID number with lower case\r",
 											"//so, here I check the same ID but uppercase\r",
-											"//to check that the id in the url is equal to the id in the response, I convert the id from the url to lower case in the test (see test below)\r",
+											"//to check that the ID in the url is equal to the id in the response, I convert the id from the url to lower case in the test (see test below)\r",
 											"\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -2192,7 +2192,7 @@
 											"      \"type\": \"object\",\r",
 											"      \"properties\": {\r",
 											"        \"id\": {\r",
-											"          \"type\": \"string\"\r",
+											"          \"type\": \"string\",\r",
 											"        },\r",
 											"        \"name\": {\r",
 											"          \"type\": \"string\"\r",
@@ -2213,7 +2213,36 @@
 											"     let idURL = pm.request.url.path[1].toLowerCase(); \r",
 											"     let idJSON = pm.response.json().id;\r",
 											"     pm.expect(idJSON).to.eql(idURL);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains correct brand name and slug\", function () {\r",
+											"    const json = pm.response.json();\r",
+											"    pm.expect(json.name).to.eql(pm.collectionVariables.get(\"post_name\"));\r",
+											"    pm.expect(json.slug).to.eql(pm.collectionVariables.get(\"post_slug\"));\r",
 											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"//I check if ID is uppercase and if no ->> convert to uppercase and set ->> make request ->> check (in post-response) if I got the same ID in the response\r",
+											"\r",
+											"let brandId = pm.variables.get(\"post_brand_id\");\r",
+											"console.log(\"brandId variable value:\", brandId);\r",
+											"\r",
+											"if (brandId) {\r",
+											"    if (brandId !== brandId.toUpperCase()) {\r",
+											"        let upperBrandId = brandId.toUpperCase();\r",
+											"            console.log(\"Value upperBrandId:\", upperBrandId);\r",
+											"\r",
+											"        pm.variables.set(\"post_brand_id\", upperBrandId);\r",
+											"    }\r",
+											"}\r",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -2692,7 +2721,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/search?q={{get_brand_name}}",
+									"raw": "{{baseURL}}/brands/search?q={{post_name}}",
 									"host": [
 										"{{baseURL}}"
 									],
@@ -2703,7 +2732,7 @@
 									"query": [
 										{
 											"key": "q",
-											"value": "{{get_brand_name}}"
+											"value": "{{post_name}}"
 										}
 									]
 								}
