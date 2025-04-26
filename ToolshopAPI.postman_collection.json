@@ -2780,6 +2780,24 @@
 											"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json;charset=UTF-8');\r",
 											"});\r",
 											"\r",
+											"//ID and slug is not a constant, so I check it separately, not inside the schema, using \"enum\": [post_brand_id]\r",
+											"pm.test(\"id and slug in request = id and slug in JSON\", function() {\r",
+											"   \r",
+											"    const jsonRes = pm.response.json()[0];\r",
+											"    const expectedId = pm.collectionVariables.get(\"post_brand_id\");\r",
+											"    const expectedSlug = pm.collectionVariables.get(\"post_slug\");\r",
+											"\r",
+											"     pm.expect(jsonRes.id).to.eql(expectedId);\r",
+											"     pm.expect(jsonRes.slug).to.eql(expectedSlug);\r",
+											"});\r",
+											"\r",
+											"//Name is not a constant, so I check it separately, not inside the schema, using \"enum\": [post_name]\r",
+											"pm.test(\"Name in URL = Name in JSON\", function() {\r",
+											"    const brandName = pm.collectionVariables.get(\"post_name\");\r",
+											"    const nameJSON = pm.response.json()[0].name;\r",
+											"    pm.expect(nameJSON).to.eql(brandName);\r",
+											"});\r",
+											"\r",
 											"\r",
 											"let schema =\r",
 											"\r",
@@ -2794,7 +2812,6 @@
 											"        },\r",
 											"        \"name\": {\r",
 											"          \"type\": \"string\",\r",
-											"          \"enum\": [\"123\"]\r",
 											"        },\r",
 											"        \"slug\": {\r",
 											"          \"type\": \"string\"\r",
@@ -2815,6 +2832,29 @@
 											"});\r",
 											"\r",
 											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"//I check if name is uppercase and if no ->> convert it to uppercase and set ->> make request ->> check (in post-response) if I got the same name in the response\r",
+											"\r",
+											"let brandName = pm.variables.get(\"post_name\");\r",
+											"console.log(\"brandName variable value:\", brandName);\r",
+											"\r",
+											"if (brandName) {\r",
+											"    if (brandName !== brandName.toUpperCase()) {\r",
+											"        let upperBrandName = brandName.toUpperCase();\r",
+											"            console.log(\"Value upperBrandName:\", upperBrandName);\r",
+											"\r",
+											"        pm.variables.set(\"post_name\", upperBrandName);\r",
+											"    }\r",
+											"}\r",
 											""
 										],
 										"type": "text/javascript",
@@ -2841,7 +2881,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/search?q=FORGEFLEX+TOOLS",
+									"raw": "{{baseURL}}/brands/search?q={{post_name}}",
 									"host": [
 										"{{baseURL}}"
 									],
@@ -2852,7 +2892,7 @@
 									"query": [
 										{
 											"key": "q",
-											"value": "FORGEFLEX+TOOLS"
+											"value": "{{post_name}}"
 										}
 									]
 								}
