@@ -2166,8 +2166,8 @@
 									"script": {
 										"exec": [
 											"//I have ID number with lower case\r",
-											"//so, here I check the same ID but uppercase\r",
-											"//to check that the ID in the url is equal to the id in the response, I convert the id from the url to lower case in the test (see test below)\r",
+											"//so, here I check GET request with the same ID but uppercase\r",
+											"//to check that the ID in the URL is equal to the ID in the response, I convert the ID from the URL to lowercase in the test (see test below)\r",
 											"\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -2208,12 +2208,14 @@
 											"    pm.response.to.have.jsonSchema(schema);\r",
 											"});\r",
 											"\r",
-											"\r",
+											"//ID is not a constant, so I check it separately, not inside the schema, using \"enum\": [post_brand_id]\r",
 											"pm.test(\"id in URL = id in JSON\", function() {\r",
 											"     let idURL = pm.request.url.path[1].toLowerCase(); \r",
 											"     let idJSON = pm.response.json().id;\r",
 											"     pm.expect(idJSON).to.eql(idURL);\r",
 											"});\r",
+											"\r",
+											"//the same for check slug and name:\r",
 											"\r",
 											"pm.test(\"Response contains correct brand name and slug\", function () {\r",
 											"    const json = pm.response.json();\r",
@@ -2229,7 +2231,7 @@
 									"listen": "prerequest",
 									"script": {
 										"exec": [
-											"//I check if ID is uppercase and if no ->> convert to uppercase and set ->> make request ->> check (in post-response) if I got the same ID in the response\r",
+											"//I check if ID is uppercase and if no ->> convert it to uppercase and set ->> make request ->> check (in post-response) if I got the same ID in the response\r",
 											"\r",
 											"let brandId = pm.variables.get(\"post_brand_id\");\r",
 											"console.log(\"brandId variable value:\", brandId);\r",
