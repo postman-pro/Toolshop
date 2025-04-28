@@ -1022,7 +1022,7 @@
 											"//start from 160 letters\r",
 											"//in this case I got understandable error message for both name and slug\r",
 											"\r",
-											"//But for slug there is additional error message \"The slug field must only contain letters, numbers, dashes, and underscores.\", so this is a bug \"POST_Wrong additional error message for slug in case value = 160 letters\"\r",
+											"//But for slug there is additional error message \"The slug field must only contain letters, numbers, dashes, and underscores.\", so this is a bug \"POST_Wrong additional error message for slug in case value > 120 letters\" (according to the next test, I know about >120 letters, not 160 )\r",
 											"\r",
 											"//let's say code 422 is expected\r",
 											"pm.test(\"Status code is 422\", function () {\r",
@@ -1091,7 +1091,7 @@
 										"exec": [
 											"//in this case I got understandable error message\r",
 											"//Error 422 is expected\r",
-											"//For slug field there is two error messages, I'll check it later separately\r",
+											"//For slug field there is one more additional error message and there is bug already according to previous test\r",
 											"\r",
 											"\r",
 											"pm.test(\"Status code is 422\", function () {\r",
