@@ -177,7 +177,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"name{{diff_post_name}}\",\r\n  \"slug\": \"{{post_slug}}\"\r\n}",
+									"raw": "{\r\n  \"name\": \"name{{diff_post_name}}\",   // I use a new neme\r\n  \"slug\": \"{{post_slug}}\"             // but slug is the same as 20_POST_BrandCreate\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2110,7 +2110,10 @@
 											"    let idURL = pm.request.url.path[1];\r",
 											"     let idJSON = pm.response.json().id;\r",
 											"     pm.expect(idJSON).to.eql(idURL);\r",
-											"});"
+											"});\r",
+											"\r",
+											"\r",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
