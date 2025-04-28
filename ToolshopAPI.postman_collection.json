@@ -1330,7 +1330,7 @@
 									"script": {
 										"exec": [
 											"//in response I got not clear error message\r",
-											"//so, here is a bug \"Incorrect error message in case not well formed JSON:Array instead an Object\"\r",
+											"//so, here is a bug \"POST_Incorrect error message in case not well formed JSON:Array instead an Object\"\r",
 											"\r",
 											"\r",
 											"pm.test(\"Status code is 422\", function () {\r",
@@ -1364,8 +1364,8 @@
 									"script": {
 										"exec": [
 											"let randomInt = Math.floor(Math.random() * 10000);\r",
-											"pm.collectionVariables.set(\"array_instead_object_post_name\", `Brand${randomInt}`);\r",
-											"pm.collectionVariables.set(\"array_instead_object_post_slug\", `Brand${randomInt}`);"
+											"pm.variables.set(\"array_instead_object_post_name\", `Brand${randomInt}`);\r",
+											"pm.variables.set(\"array_instead_object_post_slug\", `Brand${randomInt}`);"
 										],
 										"type": "text/javascript",
 										"packages": {}
