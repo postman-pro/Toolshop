@@ -1423,8 +1423,9 @@
 											"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');\r",
 											"});\r",
 											"\r",
-											"pm.test(\"error message is correct = Example of the correct message\", function () {\r",
-											"    pm.expect(pm.response.json().message).to.eql(\"Example of the correct message\")\r",
+											"//let's say should an error message like this\r",
+											"pm.test(\"error message is correct = Invalid JSON format: Comma at the end\", function () {\r",
+											"    pm.expect(pm.response.json().message).to.eql(\"Invalid JSON format: Comma at the end\")\r",
 											"    })\r",
 											""
 										],
@@ -1496,8 +1497,9 @@
 											"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');\r",
 											"});\r",
 											"\r",
-											"pm.test(\"error message is correct = Example of the correct message\", function () {\r",
-											"    pm.expect(pm.response.json().message).to.eql(\"Example of the correct message\")\r",
+											"//let's say should be an error message like this\r",
+											"pm.test(\"error message is correct = Not well formed JSON\", function () {\r",
+											"    pm.expect(pm.response.json().message).to.eql(\"Not well formed JSON\")\r",
 											"    })\r",
 											""
 										],
@@ -1510,8 +1512,8 @@
 									"script": {
 										"exec": [
 											"let randomInt = Math.floor(Math.random() * 10000);\r",
-											"pm.collectionVariables.set(\"no_comma_post_name\", `Brand${randomInt}`);\r",
-											"pm.collectionVariables.set(\"no_comma_post_slug\", `Brand${randomInt}`);"
+											"pm.variables.set(\"no_comma_post_name\", `Brand${randomInt}`);\r",
+											"pm.variables.set(\"no_comma_post_slug\", `Brand${randomInt}`);"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1583,7 +1585,7 @@
 									"script": {
 										"exec": [
 											"let randomInt = Math.floor(Math.random() * 10000);\r",
-											"pm.collectionVariables.set(\"incomplete_key-value_post_name\", `Brand${randomInt}`);"
+											"pm.variables.set(\"incomplete_key-value_post_name\", `Brand${randomInt}`);"
 										],
 										"type": "text/javascript",
 										"packages": {}
