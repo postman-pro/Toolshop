@@ -165,7 +165,7 @@
 											"//so, here I set a new variable \"diff_post_name\"\r",
 											"\r",
 											"let randomInt = Math.floor(Math.random() * 10000);\r",
-											"pm.collectionVariables.set(\"diff_post_name\", `Brand${randomInt}`);\r",
+											"pm.variables.set(\"diff_post_name\", `Brand${randomInt}`);\r",
 											"\r",
 											"\r",
 											""
@@ -246,7 +246,7 @@
 											"//so, here I set a new variable \"diff_post_slug\"\r",
 											"\r",
 											"let randomInt = Math.floor(Math.random() * 10000);\r",
-											"pm.collectionVariables.set(\"diff_post_slug\", `Brand${randomInt}`);"
+											"pm.variables.set(\"diff_post_slug\", `Brand${randomInt}`);"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -875,8 +875,8 @@
 											"//I create a new variables for this test\r",
 											"\r",
 											"let randomInt = Math.floor(Math.random() * 10000);\r",
-											"pm.collectionVariables.set(\"fields_order_variation_post_name\", `Brand${randomInt}`);\r",
-											"pm.collectionVariables.set(\"fields_order_variation_post_slug\", `brand-${randomInt}`);"
+											"pm.variables.set(\"fields_order_variation_post_name\", `Brand${randomInt}`);\r",
+											"pm.variables.set(\"fields_order_variation_post_slug\", `brand-${randomInt}`);"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1438,8 +1438,8 @@
 									"script": {
 										"exec": [
 											"let randomInt = Math.floor(Math.random() * 10000);\r",
-											"pm.collectionVariables.set(\"comma_at_the_end_post_name\", `Brand${randomInt}`);\r",
-											"pm.collectionVariables.set(\"comma_at_the_end_post_slug\", `Brand${randomInt}`);"
+											"pm.variables.set(\"comma_at_the_end_post_name\", `Brand${randomInt}`);\r",
+											"pm.variables.set(\"comma_at_the_end_post_slug\", `Brand${randomInt}`);"
 										],
 										"type": "text/javascript",
 										"packages": {}
