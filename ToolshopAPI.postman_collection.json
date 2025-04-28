@@ -281,7 +281,8 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//When simultaneously entering invalid values into both required fields in the response body, an error is received separately for each of the required fields, so I can perform this check while simultaneously entering negative data\r",
+											"//Why I do two different negative tests in one test: \r",
+											"//when simultaneously entering invalid values into both required fields in the response body, an error is received separately for each of the required fields, so I can perform this check while simultaneously entering negative data\r",
 											"\r",
 											"pm.test(\"Status code is 422\", function () {\r",
 											"    pm.response.to.have.status(422);\r",
