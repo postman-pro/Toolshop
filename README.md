@@ -18,13 +18,21 @@ newman run collections/ToolshopAPI.postman_collection.json -e environment/dev.js
 ## Folder Structure
 /
 ├── collections/
+
 │   └── BrandAPI.postman_collection.json   # Postman collection for Brands tests
+
 ├── environments/
+
 │   └── BrandAPI.postman_environment.json  # Postman environment (baseURL)
+
 ├── schemas/
+
 │   └── brandSchema.json                   # JSON schema for Brand resource // will be added
+
 ├── README.md                              # Documentation (this file)
+
 ├── CONTRIBUTING.md                        # Guidelines on how to contribute
+
 └── .gitignore                             # Git ignore rules
 
 ## Test Strategy
