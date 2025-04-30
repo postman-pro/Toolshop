@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "2f90f032-0f34-4cdb-890d-d091931d2114",
-		"name": "ToolshopAPI",
+		"name": "BrandAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "38047370"
 	},
@@ -377,7 +377,7 @@
 											"//To optimize the process, I used an online tool to generate pairs of values.\r",
 											"\r",
 											"//Swagger has no info about these error messages - need to add description about it\r",
-											"//but in the response body we have understandable message for name and slug and code 422. So, new Brand is not created\r",
+											"//but in the response body I got understandable message for name and slug and code 422. So, new Brand is not created\r",
 											"pm.test(\"SLUG error message is correct = The slug field is required.\", function() {\r",
 											"        pm.expect(pm.response.json().slug[0]).to.eql(\"The slug field is required.\")\r",
 											"})\r",
@@ -389,6 +389,13 @@
 										],
 										"type": "text/javascript",
 										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"packages": {},
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -1655,12 +1662,17 @@
 											"//charset – browsers and clients automatically handle encoding based on the server response.\r",
 											"//transfer-encoding – It is handled automatically.\r",
 											"\r",
-											"pm.test(\"Response is Array and inside >=2 objects\", function () {\r",
+											"pm.test(\"Response is Array\", function () {\r",
 											"    let jsonData = pm.response.json();\r",
 											"    pm.expect(Array.isArray(jsonData), \"Response should be an array\").to.be.true;\r",
+											"   });\r",
+											"\r",
+											"pm.test(\"Inside Array are >=2 objects\", function () {\r",
+											"    let jsonData = pm.response.json();\r",
 											"    pm.expect(jsonData.length, \"Array should have at least 2 objects\").to.be.at.least(2);\r",
 											"    pm.expect(jsonData.every(item => typeof item === 'object' && item !== null), \"Each item should be an object\").to.be.true;\r",
 											"});\r",
+											"\r",
 											"\r",
 											"let schema =\r",
 											"{\r",
