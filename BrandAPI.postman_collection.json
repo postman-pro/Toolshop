@@ -980,6 +980,9 @@
 											"pm.test(\"schema is valid\", function() {\r",
 											"    pm.response.to.have.jsonSchema(schema);\r",
 											"});\r",
+											"\r",
+											"pm.variables.unset(\"uppercase_field_NAME_post_name\");\r",
+											"pm.variables.unset(\"uppercase_field_SLUG_post_slug\");\r",
 											""
 										],
 										"type": "text/javascript",
@@ -1368,7 +1371,9 @@
 											"pm.test(\"Error message is correct = Invalid JSON format: expected an object but received an array\", function () {\r",
 											"    pm.expect(pm.response.json().message).to.eql(\"Invalid JSON format: expected an object but received an array\")\r",
 											"    })\r",
-											""
+											"\r",
+											"pm.variables.unset(\"array_instead_object_post_name\");\r",
+											"pm.variables.unset(\"array_instead_object_post_slug\");"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1442,6 +1447,9 @@
 											"pm.test(\"error message is correct = Invalid JSON format: Comma at the end\", function () {\r",
 											"    pm.expect(pm.response.json().message).to.eql(\"Invalid JSON format: Comma at the end\")\r",
 											"    })\r",
+											"\r",
+											"pm.variables.unset(\"comma_at_the_end_post_name\");\r",
+											"pm.variables.unset(\"comma_at_the_end_post_slug\");\r",
 											""
 										],
 										"type": "text/javascript",
