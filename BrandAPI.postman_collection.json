@@ -1524,6 +1524,9 @@
 											"pm.test(\"error message is correct = Not well formed JSON\", function () {\r",
 											"    pm.expect(pm.response.json().message).to.eql(\"Not well formed JSON\")\r",
 											"    })\r",
+											"\r",
+											"pm.variables.unset(\"no_comma_post_name\");\r",
+											"pm.variables.unset(\"no_comma_post_slug\");\r",
 											""
 										],
 										"type": "text/javascript",
@@ -1597,6 +1600,8 @@
 											"pm.test(\"error message is correct = Example of the correct message\", function () {\r",
 											"    pm.expect(pm.response.json().message).to.eql(\"Example of the correct message\")\r",
 											"    })\r",
+											"\r",
+											"pm.variables.unset(\"incomplete_key-value_post_name\");\r",
 											""
 										],
 										"type": "text/javascript",
