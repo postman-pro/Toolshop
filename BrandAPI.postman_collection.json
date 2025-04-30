@@ -150,6 +150,7 @@
 											"    pm.expect(pm.response.json().slug[0]).to.eql(\"A brand already exists with this slug.\")\r",
 											"});\r",
 											"\r",
+											"pm.variables.unset(\"diff_post_name\"); \r",
 											"\r",
 											""
 										],
@@ -763,7 +764,9 @@
 											"pm.test(\"schema is valid\", function() {\r",
 											"    pm.response.to.have.jsonSchema(schema);\r",
 											"});\r",
-											""
+											"\r",
+											"pm.variables.unset(\"uppercase_post_name\");\r",
+											"pm.variables.unset(\"uppercase_post_slug\");"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -871,6 +874,9 @@
 											"pm.test(\"schema is valid\", function() {\r",
 											"    pm.response.to.have.jsonSchema(schema);\r",
 											"});\r",
+											"\r",
+											"pm.variables.unset(\"fields_order_variation_post_name\");\r",
+											"pm.variables.unset(\"fields_order_variation_post_slug\");\r",
 											""
 										],
 										"type": "text/javascript",
