@@ -232,6 +232,7 @@
 											"        pm.expect(pm.response.json().name[0]).to.eql(\"A brand already exists with this name.\")\r",
 											"})\r",
 											"\r",
+											"pm.variables.unset(\"diff_post_slug\"); \r",
 											""
 										],
 										"type": "text/javascript",
@@ -661,7 +662,8 @@
 											"    pm.expect(pm.response.json().message).to.eql(\"Method is not allowed for the requested route\")\r",
 											"    })\r",
 											"\r",
-											""
+											"pm.variables.unset(\"wrong_method_post_name\");\r",
+											"pm.variables.unset(\"wrong_method_post_slug\");"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1662,17 +1664,12 @@
 											"//charset – browsers and clients automatically handle encoding based on the server response.\r",
 											"//transfer-encoding – It is handled automatically.\r",
 											"\r",
-											"pm.test(\"Response is Array\", function () {\r",
+											"pm.test(\"Response is Array and inside >=2 objects\", function () {\r",
 											"    let jsonData = pm.response.json();\r",
-											"    pm.expect(Array.isArray(jsonData), \"Response should be an array\").to.be.true;\r",
-											"   });\r",
-											"\r",
-											"pm.test(\"Inside Array are >=2 objects\", function () {\r",
-											"    let jsonData = pm.response.json();\r",
+											"    pm.expect(Array.isArray(jsonData), \"Response should is array\").to.be.true;\r",
 											"    pm.expect(jsonData.length, \"Array should have at least 2 objects\").to.be.at.least(2);\r",
 											"    pm.expect(jsonData.every(item => typeof item === 'object' && item !== null), \"Each item should be an object\").to.be.true;\r",
-											"});\r",
-											"\r",
+											"   });\r",
 											"\r",
 											"let schema =\r",
 											"{\r",
@@ -1927,7 +1924,7 @@
 										"exec": [
 											"//there is no information about this case in Swagger\r",
 											"//but normally url should not be case sensitive\r",
-											"//so, here is a bug \"URL https://api.practicesoftwaretesting.com/BRANDS is case sensitive\"\r",
+											"//so, here is a bug \"GET_URL https://api.practicesoftwaretesting.com/BRANDS is case sensitive\"\r",
 											"\r",
 											"\r",
 											"pm.test(\"Status code is 200\", function () {\r",
@@ -2533,9 +2530,9 @@
 											"\r",
 											"\r",
 											"pm.test(\"Response contains the same name as in request\", function() {\r",
-											"    const brandNameInUrl = pm.request.url.query.find(p => p.key === \"q\").value;\r",
+											"    const NameInUrl = pm.request.url.query.find(p => p.key === \"q\").value;\r",
 											"    const nameInResponse = pm.response.json()[0].name;\r",
-											"    pm.expect(nameInResponse).to.eql(brandNameInUrl);\r",
+											"    pm.expect(nameInResponse).to.eql(NameInUrl);\r",
 											"});\r",
 											"\r",
 											"let schema =\r",
@@ -2575,6 +2572,13 @@
 										],
 										"type": "text/javascript",
 										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"packages": {},
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -2950,7 +2954,6 @@
 											"        },\r",
 											"        \"name\": {\r",
 											"          \"type\": \"string\",\r",
-											"         // \"enum\": [\"123\"]\r",
 											"        },\r",
 											"        \"slug\": {\r",
 											"          \"type\": \"string\"\r",
@@ -2980,6 +2983,13 @@
 										],
 										"type": "text/javascript",
 										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"packages": {},
+										"type": "text/javascript"
 									}
 								}
 							],
