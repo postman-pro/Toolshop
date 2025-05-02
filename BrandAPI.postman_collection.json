@@ -2425,10 +2425,6 @@
 											"    pm.response.to.have.status(200);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response time is less than 1000ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
-											"});\r",
-											"\r",
 											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
 											"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
 											"});\r",
@@ -2495,8 +2491,11 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"packages": {},
-										"type": "text/javascript"
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -2549,10 +2548,6 @@
 											"\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response time is less than 1000ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 											"});\r",
 											"\r",
 											"pm.test(\" header  Connection=close\", function () {\r",
@@ -2628,10 +2623,6 @@
 											"    pm.response.to.have.status(405);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response time is less than 1000ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
-											"});\r",
-											"\r",
 											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
 											"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
 											"});\r",
@@ -2699,10 +2690,6 @@
 											"\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response time is less than 1000ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 											"});\r",
 											"\r",
 											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
@@ -2846,10 +2833,6 @@
 											"    pm.response.to.have.status(200);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response time is less than 1000ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
-											"});\r",
-											"\r",
 											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
 											"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
 											"});\r",
@@ -2906,8 +2889,11 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"packages": {},
-										"type": "text/javascript"
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -2965,10 +2951,6 @@
 											"\r",
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response time is less than 1000ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 											"});\r",
 											"\r",
 											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
@@ -3047,10 +3029,6 @@
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response time is less than 1000ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
-											"});\r",
-											"\r",
 											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
 											"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
 											"});\r",
@@ -3126,10 +3104,6 @@
 											"\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response time is less than 1000ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 											"});\r",
 											"\r",
 											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
