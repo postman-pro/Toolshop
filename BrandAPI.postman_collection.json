@@ -28,10 +28,6 @@
 											"    pm.response.to.have.status(201);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response time is less than 1000ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
-											"});\r",
-											"\r",
 											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
 											"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
 											"});\r",
@@ -134,10 +130,6 @@
 											"    pm.response.to.have.status(422);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response time is less than 1000ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
-											"});\r",
-											"\r",
 											"pm.test(\"header Connection=Upgrade, close\", function () {\r",
 											"    pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
 											"});\r",
@@ -215,10 +207,6 @@
 											"    pm.response.to.have.status(422);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response time is less than 1000ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
-											"});\r",
-											"\r",
 											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
 											"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
 											"});\r",
@@ -293,10 +281,6 @@
 											"    pm.response.to.have.status(422);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response time is less than 1000ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
-											"});\r",
-											"\r",
 											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
 											"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
 											"});\r",
@@ -363,10 +347,6 @@
 											"    pm.response.to.have.status(422);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response time is less than 1000ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
-											"});\r",
-											"\r",
 											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
 											"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
 											"});\r",
@@ -396,8 +376,11 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"packages": {},
-										"type": "text/javascript"
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -439,10 +422,6 @@
 											"    pm.response.to.have.status(422);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response time is less than 1000ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
-											"});\r",
-											"\r",
 											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
 											"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
 											"});\r",
@@ -467,6 +446,13 @@
 										],
 										"type": "text/javascript",
 										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"packages": {},
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -508,10 +494,6 @@
 											"    pm.response.to.have.status(422);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response time is less than 1000ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
-											"});\r",
-											"\r",
 											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
 											"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
 											"});\r",
@@ -539,6 +521,13 @@
 										],
 										"type": "text/javascript",
 										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"packages": {},
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -580,10 +569,6 @@
 											"    pm.response.to.have.status(422);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response time is less than 1000ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
-											"});\r",
-											"\r",
 											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
 											"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
 											"});\r",
@@ -607,6 +592,13 @@
 										],
 										"type": "text/javascript",
 										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"packages": {},
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -644,10 +636,6 @@
 											"\r",
 											"pm.test(\"Status code is 405\", function () {\r",
 											"    pm.response.to.have.status(405);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response time is less than 1000ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 											"});\r",
 											"\r",
 											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
@@ -719,10 +707,6 @@
 											"\r",
 											"pm.test(\"Status code is 201\", function () {\r",
 											"    pm.response.to.have.status(201);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response time is less than 1000ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 											"});\r",
 											"\r",
 											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
@@ -5162,7 +5146,9 @@
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					""
+					"pm.test(\"Response time is less than 1000ms\", function () {\r",
+					"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+					"});"
 				]
 			}
 		}
