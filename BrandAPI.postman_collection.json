@@ -3805,7 +3805,12 @@
 											"    {\r",
 											"        pm.expect(pm.response.json().success).to.eql(true);\r",
 											"    }\r",
-											")\r",
+											");\r",
+											"\r",
+											"pm.variables.unset(\"uppercase_field_names_put_NAME\");\r",
+											"pm.variables.unset(\"uppercase_field_names_put_SLUG\");\r",
+											"\r",
+											"\r",
 											"\r",
 											""
 										],
@@ -3818,8 +3823,8 @@
 									"script": {
 										"exec": [
 											"let randomInt = Math.floor(Math.random() * 10000);\r",
-											"pm.collectionVariables.set(\"uppercase_field_names_put_NAME\", `name${randomInt}`);\r",
-											"pm.collectionVariables.set(\"uppercase_field_names_put_SLUG\", `brand-${randomInt}`);"
+											"pm.variables.set(\"uppercase_field_names_put_NAME\", `name${randomInt}`);\r",
+											"pm.variables.set(\"uppercase_field_names_put_SLUG\", `brand-${randomInt}`);"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -5021,14 +5026,6 @@
 		},
 		{
 			"key": "1_put_slug",
-			"value": ""
-		},
-		{
-			"key": "uppercase_field_names_put_NAME",
-			"value": ""
-		},
-		{
-			"key": "uppercase_field_names_put_SLUG",
 			"value": ""
 		}
 	]
