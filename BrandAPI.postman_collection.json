@@ -3238,6 +3238,18 @@
 							"name": "41_PUT_BrandIDUpdateNonExistBrandID",
 							"event": [
 								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"let randomInt = Math.floor(Math.random() * 10000);\r",
+											"pm.variables.set(\"put_name_non_exist_brand_id\", `Brand${randomInt}`);\r",
+											"pm.variables.set(\"put_slug_non_exist_brand_id\", `brand-${randomInt}`);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
 									"listen": "test",
 									"script": {
 										"exec": [
@@ -3257,7 +3269,10 @@
 											"    {\r",
 											"        pm.expect(pm.response.json().success).to.eql(false);\r",
 											"    }\r",
-											")"
+											")\r",
+											"\r",
+											"pm.variables.clear(\"put_name_non_exist_brand_id\");\r",
+											"pm.variables.unset(\"put_slug_non_exist_brand_id\");"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -3269,7 +3284,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"new\",\r\n  \"slug\": \"a\"\r\n}",
+									"raw": "{\r\n  \"name\": \"{{put_name_non_exist_brand_id}}\",\r\n  \"slug\": \"{{put_slug_non_exist_brand_id}}\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3277,13 +3292,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/01JPW5RPPF64Y1Z04JRC3NTH4q",
+									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"01JPW5RPPF64Y1Z04JRC3NTH4q"
+										"{{post_brand_id}}"
 									]
 								}
 							},
@@ -3840,7 +3855,8 @@
 											"    }\r",
 											")\r",
 											"\r",
-											""
+											"pm.variables.unset(\"field_order_variation_put_slug\");\r",
+											"pm.variables.unset(\"field_order_variation_put_name\");"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -3851,8 +3867,8 @@
 									"script": {
 										"exec": [
 											"let randomInt = Math.floor(Math.random() * 10000);\r",
-											"pm.collectionVariables.set(\"field_order_variation_put_name\", `name${randomInt}`);\r",
-											"pm.collectionVariables.set(\"field_order_variation_put_slug\", `brand-${randomInt}`);"
+											"pm.variables.set(\"field_order_variation_put_name\", `name${randomInt}`);\r",
+											"pm.variables.set(\"field_order_variation_put_slug\", `brand-${randomInt}`);"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -4987,22 +5003,6 @@
 		},
 		{
 			"key": "uppercase_field_names_put_SLUG",
-			"value": ""
-		},
-		{
-			"key": "field_order_variation_put_name",
-			"value": ""
-		},
-		{
-			"key": "field_order_variation_put_slug",
-			"value": ""
-		},
-		{
-			"key": "array_instead_object_put_name",
-			"value": ""
-		},
-		{
-			"key": "array_instead_object_put_slug",
 			"value": ""
 		}
 	]
