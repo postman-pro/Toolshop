@@ -4198,7 +4198,12 @@
 											"//so, bug \"PUT_No error message in the response in case if an incomplete JSON is sent\"\r",
 											"pm.test(\"Error message is correct = Invalid JSON format\", function () {\r",
 											"    pm.expect(pm.response.json().message).to.eql(\"Invalid JSON format\")\r",
-											"    })\r",
+											"    });\r",
+											"\r",
+											"pm.variables.unset(\"incomplete_key-value_format_put_name\");\r",
+											"pm.variables.unset(\"incomplete_key-value_format_put_slug\");\r",
+											"\r",
+											"\r",
 											"\r",
 											""
 										],
@@ -4211,8 +4216,8 @@
 									"script": {
 										"exec": [
 											"let randomInt = Math.floor(Math.random() * 10000);\r",
-											"pm.collectionVariables.set(\"incomplete_key-value_format_put_name\", `name${randomInt}`);\r",
-											"pm.collectionVariables.set(\"incomplete_key-value_format_put_slug\", `brand-${randomInt}`);"
+											"pm.variables.set(\"incomplete_key-value_format_put_name\", `name${randomInt}`);\r",
+											"pm.variables.set(\"incomplete_key-value_format_put_slug\", `brand-${randomInt}`);"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -4252,6 +4257,7 @@
 									"script": {
 										"exec": [
 											"//Swagger has no info about ER in this case - need to add description about it into documentation\r",
+											"//As I mentioned already, I can't delete brand, so this test case just for example only\r",
 											"\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -4267,7 +4273,11 @@
 											"\r",
 											"pm.test(\"Message is correct = success: false\", function () {\r",
 											"    pm.expect(pm.response.json().success).to.eql(false)\r",
-											"    })\r",
+											"    });\r",
+											"\r",
+											"pm.variables.unset(\"deleted_brand_put_name\");\r",
+											"pm.variables.unset(\"deleted_brand_put_slug\");\r",
+											"\r",
 											"\r",
 											""
 										],
@@ -4280,8 +4290,12 @@
 									"script": {
 										"exec": [
 											"let randomInt = Math.floor(Math.random() * 10000);\r",
-											"pm.collectionVariables.set(\"deletrd_brand_put_name\", `name${randomInt}`);\r",
-											"pm.collectionVariables.set(\"deletrd_brand_put_slug\", `brand-${randomInt}`);"
+											"pm.variables.set(\"deleted_brand_put_name\", `name${randomInt}`);\r",
+											"pm.variables.set(\"deleted_brand_put_slug\", `brand-${randomInt}`);\r",
+											"\r",
+											"\r",
+											"//first I delete existant BrandID\r",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -4293,7 +4307,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"{{deletrd_brand_put_name}}\",\r\n  \"slug\": \"{{deletrd_brand_put_slug}}\"\r\n}",
+									"raw": "{\r\n  \"name\": \"{{deleted_brand_put_name}}\",\r\n  \"slug\": \"{{deleted_brand_put_slug}}\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4327,7 +4341,7 @@
 										"exec": [
 											"//in the endpoint I use setted collection variable band_id in the 20_POST_BrandCreate\r",
 											"\r",
-											"//impossible to perform Brand deletion, because I don't have an Amin role\r",
+											"//impossible to perform Brand deletion, because I don't have an Admin role\r",
 											"//therefore the checks in this test are only for example purposes\r",
 											"\r",
 											"pm.test(\"Status code is 204\", function () {\r",
@@ -4346,6 +4360,17 @@
 											"    pm.expect(pm.response.json().message).to.eql(\"Unauthorized\")\r",
 											"    })\r",
 											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
 											""
 										],
 										"type": "text/javascript",
