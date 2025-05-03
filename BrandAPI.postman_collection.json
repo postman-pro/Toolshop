@@ -3325,7 +3325,25 @@
 											"\r",
 											"pm.test(\" error message is correct = Method is not allowed for the requested route\", function () {\r",
 											"    pm.expect(pm.response.json().message).to.eql(\"Method is not allowed for the requested route\")\r",
-											"    })"
+											"    });\r",
+											"\r",
+											"pm.variables.unset(\"method_not_allowed_put_name\");\r",
+											"pm.variables.unset(\"method_not_allowed_put_slug\");\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"let randomInt = Math.floor(Math.random() * 10000);\r",
+											"pm.variables.set(\"method_not_allowed_put_name\", `new-name${randomInt}`);\r",
+											"pm.variables.set(\"method_not_allowed_put_slug\", `new-slug${randomInt}`);\r",
+											"\r",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -3337,7 +3355,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"name-method-not-allowed\",\r\n  \"slug\": \"slug-method-not-allowed\"\r\n}",
+									"raw": "{\r\n  \"name\": \"{{method_not_allowed_put_name}}\",\r\n  \"slug\": \"{{method_not_allowed_put_slug}}\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
