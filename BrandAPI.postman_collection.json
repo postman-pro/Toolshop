@@ -4982,10 +4982,6 @@
 	],
 	"variable": [
 		{
-			"key": "brand_id",
-			"value": ""
-		},
-		{
 			"key": "get_brand_id",
 			"value": ""
 		},
@@ -5006,19 +5002,7 @@
 			"value": ""
 		},
 		{
-			"key": "post_id",
-			"value": ""
-		},
-		{
 			"key": "post_brand_id",
-			"value": ""
-		},
-		{
-			"key": "put_name",
-			"value": ""
-		},
-		{
-			"key": "put_slug",
 			"value": ""
 		}
 	]
