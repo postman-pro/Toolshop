@@ -1758,8 +1758,6 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"\r",
-											"\r",
 											"// There is no description of this error in the Swagger. \r",
 											"// Let's say ER is this status code 400\r",
 											"pm.test(\"Status code is 400\", function () {\r",
@@ -5016,63 +5014,11 @@
 			"value": ""
 		},
 		{
-			"key": "diff_post_name",
-			"value": ""
-		},
-		{
-			"key": "diff_post_slug",
-			"value": ""
-		},
-		{
-			"key": "uppercase_post_name",
-			"value": ""
-		},
-		{
-			"key": "uppercase_post_slug",
-			"value": ""
-		},
-		{
-			"key": "fields_order_variation_post_name",
-			"value": ""
-		},
-		{
-			"key": "fields_order_variation_post_slug",
-			"value": ""
-		},
-		{
-			"key": "uppercase_field_NAME_post_name",
-			"value": ""
-		},
-		{
-			"key": "uppercase_field_SLUG_post_slug",
-			"value": ""
-		},
-		{
-			"key": "incomplete_key-value_post_name",
-			"value": ""
-		},
-		{
 			"key": "put_name",
 			"value": ""
 		},
 		{
 			"key": "put_slug",
-			"value": ""
-		},
-		{
-			"key": "uppercase_put_name",
-			"value": ""
-		},
-		{
-			"key": "uppercase_put_slug",
-			"value": ""
-		},
-		{
-			"key": "1_put_name",
-			"value": ""
-		},
-		{
-			"key": "1_put_slug",
 			"value": ""
 		}
 	]
