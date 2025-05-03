@@ -3190,7 +3190,14 @@
 											"    {\r",
 											"        pm.expect(pm.response.json().success).to.eql(true);\r",
 											"    }\r",
-											")"
+											");\r",
+											"\r",
+											"pm.variables.unset(\"put_name\");\r",
+											"pm.variables.unset(\"put_slug\")\r",
+											"\r",
+											"\r",
+											"\r",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -3201,8 +3208,8 @@
 									"script": {
 										"exec": [
 											"let randomInt = Math.floor(Math.random() * 10000);\r",
-											"pm.collectionVariables.set(\"put_name\", `Brand${randomInt}`);\r",
-											"pm.collectionVariables.set(\"put_slug\", `brand-${randomInt}`);"
+											"pm.variables.set(\"put_name\", `new-name${randomInt}`);\r",
+											"pm.variables.set(\"put_slug\", `new-slug-${randomInt}`);"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -3214,7 +3221,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"new-name{{put_name}}\",\r\n  \"slug\": \"new-slug{{put_slug}}\"\r\n}",
+									"raw": "{\r\n  \"name\": \"{{put_name}}\",\r\n  \"slug\": \"{{put_slug}}\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3269,9 +3276,9 @@
 											"    {\r",
 											"        pm.expect(pm.response.json().success).to.eql(false);\r",
 											"    }\r",
-											")\r",
+											");\r",
 											"\r",
-											"pm.variables.clear(\"put_name_non_exist_brand_id\");\r",
+											"pm.variables.unset(\"put_name_non_exist_brand_id\");\r",
 											"pm.variables.unset(\"put_slug_non_exist_brand_id\");"
 										],
 										"type": "text/javascript",
@@ -3696,12 +3703,9 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"\r",
-											"\r",
 											"//Swagger has no info about ER in this case - need to add description about it into documentation\r",
 											"//but in the response body I got clear message  about Brand is not updated, so let's say this is a Bug:\r",
 											"// \"PUT_Brand is not updated in case uppercase field name values\"\r",
-											"\r",
 											"\r",
 											"//let's say code 200 is expected\r",
 											"pm.test(\"Status code is 200\", function () {\r",
@@ -3721,7 +3725,11 @@
 											"    {\r",
 											"        pm.expect(pm.response.json().success).to.eql(true);\r",
 											"    }\r",
-											")\r",
+											");\r",
+											"\r",
+											"pm.variables.unset(\"uppercase_put_name\");\r",
+											"pm.variables.unset(\"uppercase_put_slug\");\r",
+											"\r",
 											"\r",
 											""
 										],
@@ -3734,8 +3742,8 @@
 									"script": {
 										"exec": [
 											"let randomInt = Math.floor(Math.random() * 10000);\r",
-											"pm.collectionVariables.set(\"uppercase_put_name\", `NAME${randomInt}`);\r",
-											"pm.collectionVariables.set(\"uppercase_put_slug\", `BRAND-${randomInt}`);\r",
+											"pm.variables.set(\"uppercase_put_name\", `NAME${randomInt}`);\r",
+											"pm.variables.set(\"uppercase_put_slug\", `BRAND-${randomInt}`);\r",
 											"\r",
 											""
 										],
