@@ -4595,7 +4595,8 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//impossible to perform, because I'm not an admin\r",
+											"// !!! impossible to perform Brand deletion, because I don't have an Amin role \r",
+											"// !!! therefore the checks in this test are only for example purposes \r",
 											"\r",
 											"pm.test(\"Status code is 404\", function () {\r",
 											"    pm.response.to.have.status(404);\r",
@@ -4633,13 +4634,12 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseURL}}/brand/01jqrn8hmcgbmsfdj5f2ndfvyq",
+									"raw": "{{baseURL}}/brand",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
-										"brand",
-										"01jqrn8hmcgbmsfdj5f2ndfvyq"
+										"brand"
 									]
 								}
 							},
@@ -4652,7 +4652,8 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//impossible to perform, because I'm not an admin\r",
+											"// !!! impossible to perform Brand deletion, because I don't have an Admin role\r",
+											"// !!! therefore the checks in this test are only for example purposes\r",
 											"\r",
 											"pm.test(\"Status code is 404\", function () {\r",
 											"    pm.response.to.have.status(404);\r",
@@ -4679,6 +4680,25 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"//first I create a new Brand\r",
+											"const deleteUrl = pm.variables.replaceIn(\"{{baseURL}}/brands/{{post_brand_id}}\");\r",
+											"\r",
+											"pm.sendRequest({\r",
+											"    url: deleteUrl,\r",
+											"    method: 'DELETE',\r",
+											"    headers: {\r",
+											"        \"Content-Type\": \"application/json\"\r",
+											"    }\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
 							"request": {
@@ -4688,13 +4708,13 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseURL}}/BRANDS/01jqrnzekt7gh2r687jry00yeq",
+									"raw": "{{baseURL}}/BRANDS/{{post_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"BRANDS",
-										"01jqrnzekt7gh2r687jry00yeq"
+										"{{post_brand_id}}"
 									]
 								}
 							},
@@ -4707,7 +4727,8 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//impossible to perform, because I'm not an admin\r",
+											"// !!! impossible to perform Brand deletion, because I don't have an Admin role\r",
+											"// !!! therefore the checks in this test are only for example purposes\r",
 											"\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
@@ -4764,7 +4785,8 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//impossible to perform, because I'm not an admin\r",
+											"// !!! impossible to perform Brand deletion, because I don't have an Admin role\r",
+											"// !!! therefore the checks in this test are only for example purposes\r",
 											"\r",
 											"pm.test(\"Status code is 204\", function () {\r",
 											"    pm.response.to.have.status(204);\r",
@@ -4816,13 +4838,14 @@
 							"response": []
 						},
 						{
-							"name": "64_DELETE_BrandNotAuthorized",
+							"name": "64_DELETE_BrandIDNotAuthorized",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"exec": [
-											"\r",
+											"// !!! impossible to perform Brand deletion, because I don't have an Admin role\r",
+											"// !!! therefore the checks in this test are only for example purposes\r",
 											"\r",
 											"pm.test(\"Status code is 401\", function () {\r",
 											"    pm.response.to.have.status(401);\r",
@@ -4862,13 +4885,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/01jqdqk4ezzqhkb2vk85kfpptm",
+									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"01jqdqk4ezzqhkb2vk85kfpptm"
+										"{{post_brand_id}}"
 									]
 								}
 							},
