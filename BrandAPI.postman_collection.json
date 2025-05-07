@@ -4345,16 +4345,16 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//in the endpoint I use setted collection variable band_id in the 20_POST_BrandCreate\r",
+											"//in the endpoint I use setted collection variable post_band_id in the 20_POST_BrandCreate\r",
 											"\r",
-											"//impossible to perform Brand deletion, because I don't have an Admin role\r",
-											"//therefore the checks in this test are only for example purposes\r",
+											"// !!! impossible to perform Brand deletion, because I don't have an Admin role\r",
+											"// !!! therefore the checks in this test are only for example purposes\r",
 											"\r",
-											"pm.test(\"Status code is 204\", function () {\r",
+											"pm.test(\"Status code is 204\", function () {     // here should be code 204\r",
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Message is correct = Unauthorized\", function () {\r",
+											"pm.test(\"Message is correct = Unauthorized\", function () {      //but in reality Unautorized\r",
 											"    pm.expect(pm.response.json().message).to.eql(\"Unauthorized\")\r",
 											"    })\r",
 											"\r",
@@ -4418,13 +4418,14 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//impossible to perform Brand deletion, because I don't have an Amin role\r",
-											"//therefore the checks in this test are only for example purposes\r",
+											"// !!! impossible to perform Brand deletion, because I don't have an Amin role \r",
+											"// !!! therefore the checks in this test are only for example purposes         \r",
 											"\r",
 											"pm.test(\"Status code is 404\", function () {   \r",
 											"    pm.response.to.have.status(404);\r",
 											"});\r",
 											"\r",
+											"//should be message as below\r",
 											"pm.test(\"Message is correct = Requested item not found\", function () {\r",
 											"    pm.expect(pm.response.json().message).to.eql(\"Requested item not found\")\r",
 											"    })\r",
@@ -4459,13 +4460,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/{{brand_id}}",
+									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"{{brand_id}}"
+										"{{post_brand_id}}"
 									]
 								}
 							},
