@@ -4339,7 +4339,77 @@
 					"name": "DELETE_Brand",
 					"item": [
 						{
-							"name": "56_DELETE_DeleteCreatedBrandByBrandID",
+							"name": "56_DELETE_BrandIDNotAuthorized",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// !!! impossible to perform Brand deletion, because I don't have an Admin role\r",
+											"// !!! therefore the checks in this test are only for example purposes\r",
+											"\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Message is correct = Unauthorized\", function () {\r",
+											"    pm.expect(pm.response.json().message).to.eql(\"Unauthorized\")\r",
+											"    })\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS5wcmFjdGljZXNvZnR3YXJldGVzdGluZy5jb20vdXNlcnMvbG9naW4iLCJpYXQiOjE3NDMxNDM5NDcsImV4cCI6MTc0MzE0NDI0NywibmJmIjoxNzQzMTQzOTQ3LCJqdGkiOiJ0UG0xTndhRUFCSUZVSVFIIiwic3ViIjoiMDFqcWRxazRlenpxaGtiMnZrODVrZnBwdG0iLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6InVzZXIifQ._tYmdfUKKzHl6fuaVuBotBCC7BL7ci7CSWPv2rZ5upU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"brands",
+										"{{post_brand_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "57_DELETE_DeleteCreatedBrandByBrandID",
 							"event": [
 								{
 									"listen": "test",
@@ -4412,7 +4482,7 @@
 							"response": []
 						},
 						{
-							"name": "57_DELETE_DeleteBrandAlreadyDeleted",
+							"name": "58_DELETE_DeleteBrandAlreadyDeleted",
 							"event": [
 								{
 									"listen": "test",
@@ -4473,7 +4543,7 @@
 							"response": []
 						},
 						{
-							"name": "58_DELETE_DeleteCreatedMethodNotAllowed",
+							"name": "59_DELETE_DeleteCreatedMethodNotAllowed",
 							"event": [
 								{
 									"listen": "test",
@@ -4534,7 +4604,7 @@
 							"response": []
 						},
 						{
-							"name": "59_DELETE_BrandByNonExistIDNumber",
+							"name": "60_DELETE_BrandByNonExistIDNumber",
 							"event": [
 								{
 									"listen": "test",
@@ -4589,7 +4659,7 @@
 							"response": []
 						},
 						{
-							"name": "60_DELETE_BrandNonExistURL",
+							"name": "61_DELETE_BrandNonExistURL",
 							"event": [
 								{
 									"listen": "test",
@@ -4646,7 +4716,7 @@
 							"response": []
 						},
 						{
-							"name": "61_DELETE_BrandByIDUppercaseURL",
+							"name": "62_DELETE_BrandByIDUppercaseURL",
 							"event": [
 								{
 									"listen": "test",
@@ -4721,7 +4791,7 @@
 							"response": []
 						},
 						{
-							"name": "62_DELETE_BrandUppercaseID",
+							"name": "63_DELETE_BrandUppercaseID",
 							"event": [
 								{
 									"listen": "test",
@@ -4779,7 +4849,7 @@
 							"response": []
 						},
 						{
-							"name": "63_DELETE_BrandByNonExistIDSymbol",
+							"name": "64_DELETE_BrandByNonExistIDSymbol",
 							"event": [
 								{
 									"listen": "test",
@@ -4833,66 +4903,6 @@
 										"!@"
 									],
 									"hash": "$%^&*()"
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "64_DELETE_BrandIDNotAuthorized",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"// !!! impossible to perform Brand deletion, because I don't have an Admin role\r",
-											"// !!! therefore the checks in this test are only for example purposes\r",
-											"\r",
-											"pm.test(\"Status code is 401\", function () {\r",
-											"    pm.response.to.have.status(401);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Message is correct = Unauthorized\", function () {\r",
-											"    pm.expect(pm.response.json().message).to.eql(\"Unauthorized\")\r",
-											"    })\r",
-											"\r",
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS5wcmFjdGljZXNvZnR3YXJldGVzdGluZy5jb20vdXNlcnMvbG9naW4iLCJpYXQiOjE3NDMxNDM5NDcsImV4cCI6MTc0MzE0NDI0NywibmJmIjoxNzQzMTQzOTQ3LCJqdGkiOiJ0UG0xTndhRUFCSUZVSVFIIiwic3ViIjoiMDFqcWRxazRlenpxaGtiMnZrODVrZnBwdG0iLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6InVzZXIifQ._tYmdfUKKzHl6fuaVuBotBCC7BL7ci7CSWPv2rZ5upU",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
-									"host": [
-										"{{baseURL}}"
-									],
-									"path": [
-										"brands",
-										"{{post_brand_id}}"
-									]
 								}
 							},
 							"response": []
