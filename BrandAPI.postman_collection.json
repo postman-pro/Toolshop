@@ -4399,13 +4399,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/{{brand_id}}",
+									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"{{brand_id}}"
+										"{{post_brand_id}}"
 									]
 								}
 							},
