@@ -4479,8 +4479,8 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// спочатку створюємо користувача в 12_POST_BrandCreate  - ДОДАТИ КОД\r",
-											"// беремо його айді і його видаляємо - ДОДАТИ КОД\r",
+											"// !!! impossible to perform Brand deletion, because I don't have an Amin role \r",
+											"// !!! therefore the checks in this test are only for example purposes \r",
 											"\r",
 											"\r",
 											"pm.test(\"Status code is 405\", function () {\r",
@@ -4521,13 +4521,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/brands/01jqdqk4ezzqhkb2vk85kfpptm",
+									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"01jqdqk4ezzqhkb2vk85kfpptm"
+										"{{post_brand_id}}"
 									]
 								}
 							},
@@ -4540,7 +4540,8 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//impossible to perform, because I'm not an admin\r",
+											"// !!! impossible to perform Brand deletion, because I don't have an Amin role \r",
+											"// !!! therefore the checks in this test are only for example purposes \r",
 											"\r",
 											"pm.test(\"Status code is 404\", function () {\r",
 											"    pm.response.to.have.status(404);\r",
@@ -4555,7 +4556,6 @@
 											"    }\r",
 											"  }\r",
 											"}\r",
-											"\r",
 											"\r",
 											"pm.test(\"schema is valid\", function() {\r",
 											"    pm.response.to.have.jsonSchema(schema);\r",
