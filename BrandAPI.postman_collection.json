@@ -4599,7 +4599,19 @@
 											"    pm.expect(pm.response.json().message).to.eql(\"Method is not allowed for the requested route\")\r",
 											"    })\r",
 											"\r",
-											""
+											"let schema =\r",
+											"{\r",
+											"  \"type\": \"object\",\r",
+											"  \"properties\": {\r",
+											"    \"message\": {\r",
+											"      \"type\": \"string\"\r",
+											"    }\r",
+											"  }\r",
+											"}\r",
+											"\r",
+											"pm.test(\"schema is valid\", function() {\r",
+											"    pm.response.to.have.jsonSchema(schema);\r",
+											"});"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -4725,7 +4737,6 @@
 											"  }\r",
 											"}\r",
 											"\r",
-											"\r",
 											"pm.test(\"schema is valid\", function() {\r",
 											"    pm.response.to.have.jsonSchema(schema);\r",
 											"});\r",
@@ -4762,6 +4773,37 @@
 							"name": "62_DELETE_BrandByIDUppercaseURL",
 							"event": [
 								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"//first I create a new Brand\r",
+											"const createdBrandUrl = pm.variables.replaceIn(\"{{baseURL}}/brands/{{post_brand_id}}\");\r",
+											"\r",
+											"pm.sendRequest({\r",
+											"    url: createdBrandUrl,\r",
+											"    method: \"POST\",\r",
+											"    headers: {\r",
+											"        \"Content-Type\": \"application/json\"\r",
+											"    },\r",
+											"     body: {\r",
+											"        mode: \"raw\", \r",
+											"        raw: { \r",
+											"            \"name\": \"{{post_name}}\",\r",
+											"            \"slug\": \"{{post_slug}}\"\r",
+											"        },\r",
+											"},\r",
+											"console.log(response.json()),\r",
+											"}\r",
+											")\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
 									"listen": "test",
 									"script": {
 										"exec": [
@@ -4782,32 +4824,12 @@
 											"  }\r",
 											"}\r",
 											"\r",
-											"\r",
 											"pm.test(\"schema is valid\", function() {\r",
 											"    pm.response.to.have.jsonSchema(schema);\r",
 											"});\r",
 											"\r",
 											"\r",
 											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"//first I create a new Brand\r",
-											"const deleteUrl = pm.variables.replaceIn(\"{{baseURL}}/brands/{{post_brand_id}}\");\r",
-											"\r",
-											"pm.sendRequest({\r",
-											"    url: deleteUrl,\r",
-											"    method: 'DELETE',\r",
-											"    headers: {\r",
-											"        \"Content-Type\": \"application/json\"\r",
-											"    }\r",
-											"})"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -4856,7 +4878,6 @@
 											"    }\r",
 											"  }\r",
 											"}\r",
-											"\r",
 											"\r",
 											"pm.test(\"schema is valid\", function() {\r",
 											"    pm.response.to.have.jsonSchema(schema);\r",
