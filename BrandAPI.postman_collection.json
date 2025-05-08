@@ -10,6 +10,50 @@
 			"name": "/Brand",
 			"item": [
 				{
+					"name": "SETUP",
+					"item": [
+						{
+							"name": "New Request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let deleteBrand = \r",
+											"{\r",
+											"  \"type\": \"object\",\r",
+											"  \"properties\": {\r",
+											"    \"message\": {\r",
+											"      \"type\": \"string\"\r",
+											"    }\r",
+											"  }\r",
+											"};\r",
+											"\r",
+											"pm.environment.set(\"deleteBrand\", JSON.stringify(deleteBrand))"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "HEAD",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/brands",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"brands"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "POST_BrandCreate",
 					"item": [
 						{
@@ -4354,17 +4398,9 @@
 											"\r",
 											"pm.test(\"Message is correct = Unauthorized\", function () {\r",
 											"    pm.expect(pm.response.json().message).to.eql(\"Unauthorized\")\r",
-											"    })\r",
+											"    });\r",
 											"\r",
-											"let schema =\r",
-											"{\r",
-											"  \"type\": \"object\",\r",
-											"  \"properties\": {\r",
-											"    \"message\": {\r",
-											"      \"type\": \"string\"\r",
-											"    }\r",
-											"  }\r",
-											"}\r",
+											"let schema = JSON.parse(pm.environment.get(\"deleteBrand\"));\r",
 											"\r",
 											"pm.test(\"schema is valid\", function() {\r",
 											"    pm.response.to.have.jsonSchema(schema);\r",
@@ -4440,15 +4476,7 @@
 											"    pm.expect(pm.response.json().message).to.eql(\"Unauthorized\")\r",
 											"    })\r",
 											"\r",
-											"let schema =\r",
-											"{\r",
-											"  \"type\": \"object\",\r",
-											"  \"properties\": {\r",
-											"    \"message\": {\r",
-											"      \"type\": \"string\"\r",
-											"    }\r",
-											"  }\r",
-											"}\r",
+											"let schema = JSON.parse(pm.environment.get(\"deleteBrand\"));\r",
 											"\r",
 											"pm.test(\"schema is valid\", function() {\r",
 											"    pm.response.to.have.jsonSchema(schema);\r",
@@ -4525,15 +4553,7 @@
 											"    pm.expect(pm.response.json().message).to.eql(\"Requested item not found\")\r",
 											"    })\r",
 											"\r",
-											"let schema =\r",
-											"{\r",
-											"  \"type\": \"object\",\r",
-											"  \"properties\": {\r",
-											"    \"message\": {\r",
-											"      \"type\": \"string\"\r",
-											"    }\r",
-											"  }\r",
-											"}\r",
+											"let schema = JSON.parse(pm.environment.get(\"deleteBrand\"));\r",
 											"\r",
 											"pm.test(\"schema is valid\", function() {\r",
 											"    pm.response.to.have.jsonSchema(schema);\r",
@@ -4599,15 +4619,7 @@
 											"    pm.expect(pm.response.json().message).to.eql(\"Method is not allowed for the requested route\")\r",
 											"    })\r",
 											"\r",
-											"let schema =\r",
-											"{\r",
-											"  \"type\": \"object\",\r",
-											"  \"properties\": {\r",
-											"    \"message\": {\r",
-											"      \"type\": \"string\"\r",
-											"    }\r",
-											"  }\r",
-											"}\r",
+											"let schema = JSON.parse(pm.environment.get(\"deleteBrand\"));\r",
 											"\r",
 											"pm.test(\"schema is valid\", function() {\r",
 											"    pm.response.to.have.jsonSchema(schema);\r",
@@ -4877,7 +4889,7 @@
 											"      \"type\": \"string\"\r",
 											"    }\r",
 											"  }\r",
-											"}\r",
+											"};\r",
 											"\r",
 											"pm.test(\"schema is valid\", function() {\r",
 											"    pm.response.to.have.jsonSchema(schema);\r",
