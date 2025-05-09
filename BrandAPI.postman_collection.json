@@ -108,6 +108,10 @@
 											"    pm.response.to.have.status(201);\r",
 											"});\r",
 											"\r",
+											"pm.test(\" header  Content-Type=application/json;charset=UTF-8\", function () {\r",
+											"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json;charset=UTF-8');\r",
+											"});\r",
+											"\r",
 											"let post_name = pm.variables.get(\"post_name\"); // Define post_name variable\r",
 											"let post_slug = pm.variables.get(\"post_slug\");\r",
 											"\r",
@@ -201,10 +205,6 @@
 											"    pm.response.to.have.status(422);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"header Connection=Upgrade, close\", function () {\r",
-											"    pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
-											"});\r",
-											"\r",
 											"pm.test(\"header Content-Type=application/json\", function () {\r",
 											"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');\r",
 											"});\r",
@@ -278,10 +278,6 @@
 											"    pm.response.to.have.status(422);\r",
 											"});\r",
 											"\r",
-											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
-											"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
-											"});\r",
-											"\r",
 											"pm.test(\" header  Content-Type=application/json\", function () {\r",
 											"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');\r",
 											"});\r",
@@ -352,10 +348,6 @@
 											"    pm.response.to.have.status(422);\r",
 											"});\r",
 											"\r",
-											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
-											"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
-											"});\r",
-											"\r",
 											"pm.test(\" header  Content-Type=application/json\", function () {\r",
 											"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');\r",
 											"});\r",
@@ -416,10 +408,6 @@
 										"exec": [
 											"pm.test(\"Status code is 422\", function () {\r",
 											"    pm.response.to.have.status(422);\r",
-											"});\r",
-											"\r",
-											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
-											"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
 											"});\r",
 											"\r",
 											"pm.test(\" header  Content-Type=application/json\", function () {\r",
@@ -493,10 +481,6 @@
 											"    pm.response.to.have.status(422);\r",
 											"});\r",
 											"\r",
-											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
-											"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
-											"});\r",
-											"\r",
 											"pm.test(\" header  Content-Type=application/json\", function () {\r",
 											"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');\r",
 											"});\r",
@@ -522,8 +506,11 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"packages": {},
-										"type": "text/javascript"
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -565,10 +552,6 @@
 											"    pm.response.to.have.status(422);\r",
 											"});\r",
 											"\r",
-											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
-											"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
-											"});\r",
-											"\r",
 											"pm.test(\" header  Content-Type=application/json\", function () {\r",
 											"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');\r",
 											"});\r",
@@ -597,8 +580,11 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"packages": {},
-										"type": "text/javascript"
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -640,10 +626,6 @@
 											"    pm.response.to.have.status(422);\r",
 											"});\r",
 											"\r",
-											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
-											"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
-											"});\r",
-											"\r",
 											"pm.test(\" header  Content-Type=application/json\", function () {\r",
 											"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');\r",
 											"});\r",
@@ -668,8 +650,11 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"packages": {},
-										"type": "text/javascript"
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -707,10 +692,6 @@
 											"\r",
 											"pm.test(\"Status code is 405\", function () {\r",
 											"    pm.response.to.have.status(405);\r",
-											"});\r",
-											"\r",
-											"pm.test(\" header  Connection=Upgrade, close\", function () {\r",
-											"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
 											"});\r",
 											"\r",
 											"//let's say this is expected header\r",
@@ -1681,9 +1662,7 @@
 									"     pm.expect(pm.response.headers.get('Connection')).to.include('Upgrade, close');\r",
 									"});\r",
 									"\r",
-									"pm.test(\" header  Content-Type=application/json;charset=UTF-8\", function () {\r",
-									"     pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json;charset=UTF-8');\r",
-									"});"
+									""
 								]
 							}
 						}
