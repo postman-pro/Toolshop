@@ -4188,10 +4188,18 @@
 											"pm.sendRequest({\r",
 											"    url: deleteUrl,\r",
 											"    method: 'DELETE',\r",
-											"    headers: {\r",
+											"    header: {\r",
 											"        \"Content-Type\": \"application/json\"\r",
 											"    }\r",
-											"})"
+											"}, function (err, res) {\r",
+											"    if (err) {\r",
+											"        console.log(\"Error:\", err);\r",
+											"    } else {\r",
+											"        console.log(\"Response code:\", res.code);\r",
+											"        console.log(\"Status:\", res.status);\r",
+											"        console.log(\"Response:\", res.json());\r",
+											"    }\r",
+											"});"
 										],
 										"type": "text/javascript",
 										"packages": {}
