@@ -4854,18 +4854,6 @@
 	],
 	"variable": [
 		{
-			"key": "get_brand_id",
-			"value": ""
-		},
-		{
-			"key": "get_brand_name",
-			"value": ""
-		},
-		{
-			"key": "get_brand_slug",
-			"value": ""
-		},
-		{
 			"key": "post_name",
 			"value": ""
 		},
