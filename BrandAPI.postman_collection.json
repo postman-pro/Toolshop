@@ -4660,8 +4660,9 @@
 											"        console.log(\"Response code:\", res.code);\r",
 											"        console.log(\"Status:\", res.status);\r",
 											"        console.log(\"Response:\", res.json());\r",
+											"        pm.variables.set(\"DEL_method_id\", res.json().id);\r",
 											"    }\r",
-											"})\r",
+											"});\r",
 											""
 										],
 										"type": "text/javascript",
@@ -4675,12 +4676,12 @@
 											"// !!! impossible to perform Brand deletion, because I don't have an Admin role\r",
 											"// !!! therefore the checks in this test are only for example purposes\r",
 											"\r",
-											"pm.test(\"Status code is 404\", function () {\r",
-											"    pm.response.to.have.status(404);\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Message is correct = Resource not found\", function () {\r",
-											"    pm.expect(pm.response.json().message).to.eql(\"Resource not found\")\r",
+											"pm.test(\"Message is correct = Unauthorized\", function () {\r",
+											"    pm.expect(pm.response.json().message).to.eql(\"Unauthorized\")\r",
 											"    });\r",
 											"\r",
 											"let schema = JSON.parse(pm.environment.get(\"deleteSpecificBrand\"));\r",
@@ -4702,13 +4703,13 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseURL}}/BRANDS/{{post_brand_id}}",
+									"raw": "{{baseURL}}/BRANDS/{{DEL_method_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"BRANDS",
-										"{{post_brand_id}}"
+										"{{DEL_method_id}}"
 									]
 								}
 							},
