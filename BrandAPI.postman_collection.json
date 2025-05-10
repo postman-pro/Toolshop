@@ -4746,6 +4746,50 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"let randomInt = Math.floor(Math.random() * 10000);\r",
+											"pm.variables.set(\"DEL_appercaseID_name\", `Brand${randomInt}`);\r",
+											"pm.variables.set(\"DEL_appercaseID_slug\", `brand-${randomInt}`);\r",
+											"\r",
+											"\r",
+											"//first I create a new Brand\r",
+											"const createdBrandUrl = pm.variables.replaceIn(\"{{baseURL}}/brands\");\r",
+											"\r",
+											"pm.sendRequest({\r",
+											"    url: createdBrandUrl,\r",
+											"    method: \"POST\",\r",
+											"    header: {\r",
+											"        \"Content-Type\": \"application/json;charset=UTF-8\",\r",
+											"        \"Connection\":\"Upgrade, close\"\r",
+											"    },\r",
+											"     body: {\r",
+											"        mode: \"raw\", \r",
+											"        raw: JSON.stringify({ \r",
+											"            name: pm.variables.get(\"DEL_appercaseID_name\"),\r",
+											"            slug: pm.variables.get(\"DEL_appercaseID_slug\"),\r",
+											"        })\r",
+											"     }\r",
+											"},\r",
+											"\r",
+											" function (err, res) {\r",
+											"    if (err) {\r",
+											"        console.log(\"Error:\", err);\r",
+											"    } else {\r",
+											"        console.log(\"Response code:\", res.code);\r",
+											"        console.log(\"Status:\", res.status);\r",
+											"        console.log(\"Response:\", res.json());\r",
+											"        pm.variables.set(\"DEL_uppercase_id\", res.json().id);\r",
+											"    }\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
 							"request": {
@@ -4755,13 +4799,13 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseURL}}/brands/01JQRN8HMCGBMSFDJ5F2NDFVYQ",
+									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"01JQRN8HMCGBMSFDJ5F2NDFVYQ"
+										"{{post_brand_id}}"
 									]
 								}
 							},
