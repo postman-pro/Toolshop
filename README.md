@@ -51,3 +51,4 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines on how to contribute.
 - No auth; demo only  
 - Not described in swagger API behaviors were assumed and documented in the test scripts
 - There is no info in swagger about response time, but on average the response time is less than 1000ms, so in my tests I check exactly this time
+- Some bugs can be fixed already and the notes in the tests may not be updated accordingly
