@@ -4634,7 +4634,7 @@
 											"pm.variables.set(\"DEL_method_slug\", `brand-${randomInt}`);\r",
 											"\r",
 											"\r",
-											"//first I create a new Brand\r",
+											"//first I create a new Brand and after that I delete it\r",
 											"const createdBrandUrl = pm.variables.replaceIn(\"{{baseURL}}/brands\");\r",
 											"\r",
 											"pm.sendRequest({\r",
@@ -4676,8 +4676,8 @@
 											"// !!! impossible to perform Brand deletion, because I don't have an Admin role\r",
 											"// !!! therefore the checks in this test are only for example purposes\r",
 											"\r",
-											"//in this case I expect to get \"Unauthorized\" message and status 401\r",
-											"//but I got \" Resource not found\" message and 404, so this is a bug \"DELETE_Incorrect erro r message and response code 404 in case UppercaseURL\"\r",
+											"//in this case - I don't have an Admin role - I expect to get \"Unauthorized\" message and status 401\r",
+											"//but I got \" Resource not found\" message and 404, so this is a bug \"DELETE_Incorrect error message and response code 404 in case UppercaseURL\"\r",
 											"\r",
 											"pm.test(\"Status code is 401\", function () {\r",
 											"    pm.response.to.have.status(401);\r",
@@ -4775,6 +4775,8 @@
 											"     }\r",
 											"},\r",
 											"\r",
+											"//I check if name is uppercase and if no ->> convert it to uppercase and set ->> make request ->> check (in post-response) if I got the same name in the response\r",
+											"\r",
 											" function (err, res) {\r",
 											"    if (err) {\r",
 											"        console.log(\"Error:\", err);\r",
@@ -4782,9 +4784,22 @@
 											"        console.log(\"Response code:\", res.code);\r",
 											"        console.log(\"Status:\", res.status);\r",
 											"        console.log(\"Response:\", res.json());\r",
-											"        pm.variables.set(\"DEL_uppercase_id\", res.json().id);\r",
-											"    }\r",
+											"        pm.variables.set(\"DEL_id\", res.json().id);\r",
+											"        var DEL_id = res.json().id;\r",
+											"        if (DEL_id) {\r",
+											"            if (DEL_id !== DEL_id.toUpperCase()) {\r",
+											"                let apperDEL_id = DEL_id.toUpperCase();\r",
+											"                console.log(\"Value apperDEL_id:\", apperDEL_id);\r",
+											"            }\r",
+											"        };\r",
+											"    };\r",
 											"});\r",
+											"\r",
+											"\r",
+											"\r",
+											"\r",
+											"\r",
+											"\r",
 											""
 										],
 										"type": "text/javascript",
@@ -4799,13 +4814,13 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseURL}}/brands/{{post_brand_id}}",
+									"raw": "{{baseURL}}/brands/{{DEL_id}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
 										"brands",
-										"{{post_brand_id}}"
+										"{{DEL_id}}"
 									]
 								}
 							},
