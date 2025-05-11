@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-- Fork the repository.
+- Fork the repository.		
 - Clone your fork.
 - Create a new branch for your tests or fix (if any).
 
