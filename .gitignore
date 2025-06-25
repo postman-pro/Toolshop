@@ -1,6 +1,6 @@
 #Postman files
-environments/*.postman_environment.json  
-collections/*.postman_collection.json  
+#environments/*.postman_environment.json  
+#collections/*.postman_collection.json  
 
 # Node.js
 node_modules/
