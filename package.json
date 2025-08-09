@@ -1,0 +1,11 @@
+{
+  "name": "postman-automation",
+  "version": "1.0.0",
+  "description": "Automation of Postman collection tests",
+  "scripts": {
+    "test": "newman run Collection/BrandAPI.postman_collection.json"
+  },
+  "dependencies": {
+    "newman": "^5.3.0"
+  }
+}
