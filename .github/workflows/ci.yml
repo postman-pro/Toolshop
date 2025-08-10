@@ -3,33 +3,33 @@ name: CI for project ToolShop
 on:
   push:
     branches: [ main ]
+    paths: ['collections/', 'environments/']
   pull_request:
     branches: [ main ]
-  paths: ['collections/', 'environments/']
+    paths: ['collections/', 'environments/']
 
 jobs:
   job-test:
-    run:
-      name: Check CRUD operations
-      runs-on: ubuntu-latest
+    name: Check CRUD operations
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
       
-      steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
 
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Run Postman CRUD tests
-        run: npm test
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run Postman CRUD tests
+      run: npm test
         
-      - name: Upload report 
-        uses: actions/upload-artifact@v4 
-        with: 
-         name: newman-report 
-         path: reports/newman-report.html
+    - name: Upload report 
+      uses: actions/upload-artifact@v4 
+      with: 
+       name: newman-report 
+       path: reports/newman-report.html
