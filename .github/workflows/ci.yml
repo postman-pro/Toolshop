@@ -8,7 +8,7 @@ on:
   paths: ['collections/', 'environments/']
 
 jobs:
-  run-tests:
+  run:
     name: Check CRUD operations
     runs-on: ubuntu-latest
     
