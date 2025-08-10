@@ -32,8 +32,16 @@ jobs:
     - name: Run Postman CRUD tests
       run: npm test
         
-    - name: Upload report 
-      uses: actions/upload-artifact@v4 
+    - name: Upload Newman HTML report 
+      uses: actions/upload-artifact@v4
+      if: success() || failure()        # run this step even if previous step failed
       with: 
        name: newman-report 
-       path: reports/newman-report.html
+       path: newman-report.html
+       
+    - name: Newman Log Output File Storage
+      uses: actions/upload-artifact@v4
+      if: success() || failure()        # run this step even if previous step failed
+      with:
+        name: console-log
+        path: newman.log
