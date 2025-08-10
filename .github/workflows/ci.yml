@@ -2,11 +2,15 @@ name: CI for project ToolShop
 
 on:
   push:
-    branches: [ main ]
-    paths: [ 'Collections/' ]
+    branches: 
+      - 'main'
+    paths: 
+      - 'Collections/**'
   pull_request:
-    branches: [ main ]
-    paths: [ 'Collections/' ]
+    branches: 
+      - 'main'
+    paths: 
+      - 'Collections/**'
 
 jobs:
   job-test:
