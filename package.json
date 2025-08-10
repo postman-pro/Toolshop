@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Automation of Postman collection tests",
   "scripts": {
-    "test": "newman run collections/BrandAPI.postman_collection.json --environment environments/BrandAPI.postman_environment.json -r htmlextra --reporter-htmlextra-export reports/newman-report.html"
+    "test": "newman run Collections/BrandAPI.postman_collection.json --environment Environments/BrandAPI.postman_environment.json -r htmlextra --reporter-htmlextra-export reports/newman-report.html"
   },
   
   "dependencies": {
