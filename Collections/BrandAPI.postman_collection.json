@@ -19,7 +19,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"let retrieveAllBrands = \r",
+											"let retrieveAllBrands =\r",
 											"{\r",
 											"  \"type\": \"array\",\r",
 											"  \"items\": \r",
