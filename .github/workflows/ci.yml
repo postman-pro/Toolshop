@@ -3,10 +3,10 @@ name: CI for project ToolShop
 on:
   push:
     branches: [ main ]
-    paths: [ 'environments/' ]
+    paths: [ 'collections/' ]
   pull_request:
     branches: [ main ]
-    paths: [ 'environments/' ]
+    paths: [ 'collections/' ]
 
 jobs:
   job-test:
