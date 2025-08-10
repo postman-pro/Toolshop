@@ -7,28 +7,29 @@ on:
     branches: [ main ]
   paths: ['collections/', 'environments/']
 
-job-test:
-  run:
-    name: Check CRUD operations
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+jobs:
+  job-test:
+    run:
+      name: Check CRUD operations
+      runs-on: ubuntu-latest
       
-    - name: Set up Node.js
-    uses: actions/setup-node@v4
-    with:
-      node-version: 18
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
-    - name: Install dependencies
-    run: npm ci
-    
-    - name: Run Postman CRUD tests
-      run: npm test
+      - name: Install dependencies
+        run: npm ci
       
-    - name: Upload report 
-      uses: actions/upload-artifact@v4 
-      with: 
-       name: newman-report 
-       path: reports/newman-report.html
+      - name: Run Postman CRUD tests
+        run: npm test
+        
+      - name: Upload report 
+        uses: actions/upload-artifact@v4 
+        with: 
+         name: newman-report 
+         path: reports/newman-report.html
