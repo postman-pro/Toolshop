@@ -104,7 +104,7 @@
 											"let jsonData = pm.response.json();\r",
 											"pm.collectionVariables.set(\"post_brand_id\", jsonData.id);\r",
 											"\r",
-											"pm.test(\"Status code is 201\", function () {\r",
+											"pm.test(\"Status  code is 201\", function () {\r",
 											"    pm.response.to.have.status(201);\r",
 											"});\r",
 											"\r",
