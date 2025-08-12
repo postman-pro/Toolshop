@@ -264,7 +264,7 @@
 							"response": []
 						},
 						{
-							"name": "22_POST_BrandCreateExistName",
+							"name": "22F_POST_BrandCreateExistName",
 							"event": [
 								{
 									"listen": "test",
@@ -468,7 +468,7 @@
 							"response": []
 						},
 						{
-							"name": "25_POST_BrandCreateNameSymbolSlugInteger",
+							"name": "25F_POST_BrandCreateNameSymbolSlugInteger",
 							"event": [
 								{
 									"listen": "test",
@@ -874,14 +874,14 @@
 											"{\r",
 											"  \"type\": \"object\",\r",
 											"  \"properties\": {\r",
-											"    \"name\": {\r",
-											"      \"type\": \"string\",\r",
-											"      \"enum\": [fields_order_variation_post_name]\r",
-											"    },\r",
-											"    \"slug\": {\r",
+											"      \"slug\": {\r",
 											"      \"type\": \"string\",\r",
 											"      \"enum\": [fields_order_variation_post_slug]\r",
 											"  },\r",
+											"     \"name\": {\r",
+											"     \"type\": \"string\",\r",
+											"     \"enum\": [fields_order_variation_post_name]\r",
+											"    },\r",
 											"    \"id\": {\r",
 											"      \"type\": \"string\"\r",
 											"    }\r",
@@ -927,7 +927,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"slug\": \"{{fields_order_variation_post_name}}\",\r\n  \"name\": \"{{fields_order_variation_post_name}}\"\r\n}",
+									"raw": "{\r\n  \"slug\": \"{{fields_order_variation_post_slug}}\",\r\n  \"name\": \"{{fields_order_variation_post_name}}\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
