@@ -5,12 +5,12 @@ on:
     branches: 
       - 'main'
     paths: 
-      - 'Collections/**'
+      - 'collection/**'
   pull_request:
     branches: 
       - 'main'
     paths: 
-      - 'Collections/**'
+      - 'collection/**'
 
 jobs:
   job-test:
