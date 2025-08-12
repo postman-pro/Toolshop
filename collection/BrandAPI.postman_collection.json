@@ -1946,7 +1946,7 @@
 									"script": {
 										"exec": [
 											"\r",
-											"pm.test(\"Status code is 405\", function () {\r",
+											"pm.test(\"Status code  is 405\", function () {\r",
 											"    pm.response.to.have.status(405);\r",
 											"});\r",
 											"\r",
