@@ -32,13 +32,20 @@ jobs:
     - name: Run Postman Smoke tests
       run: npm test
         
-    - name: Upload Newman HTML report 
+    - name: Upload Newman POSTreport HTML report 
       uses: actions/upload-artifact@v4
       if: success() || failure()        # run this step even if previous step failed
       with: 
        name: post-report 
        path: post-report.html
        
+    - name: Upload Newman GETreport HTML report 
+      uses: actions/upload-artifact@v4
+      if: success() || failure()        # run this step even if previous step failed
+      with: 
+       name: get-report 
+       path: get-report.html
+    
     - name: Newman Log Output File Storage
       uses: actions/upload-artifact@v4
       if: success() || failure()        # run this step even if previous step failed
