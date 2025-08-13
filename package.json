@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Automation of Postman collection tests",
   "scripts": {
-    "test": "newman run collection/BrandAPI_POST-GET_SmokeTests.postman_collection.json --environment environment/ToolshopTEST.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export post-report.html | tee post-newman.log",
+    "test": "newman run collection/BrandAPI_POST-GET_SmokeTests.postman_collection.json --environment environment/ToolshopTEST.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export report.html | tee newman.log",
 ## line below in case I need to test two separate Test Suites
 ## "test:get": "newman run collection/BrandAPI_GET_SmokeTests.postman_collection.json --environment environment/ToolshopTEST.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export get-report.html | tee get-newman.log",
 ##    "test": "npm run test:post && npm run test:get"

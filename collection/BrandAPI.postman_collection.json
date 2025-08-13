@@ -1645,7 +1645,7 @@
 											"pm.collectionVariables.set(\"get_brand_slug\", pm.response.json()[0].slug);\r",
 											"\r",
 											"\r",
-											"pm.test(\"Status code is  200\", function () {\r",
+											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});\r",
 											"\r",
