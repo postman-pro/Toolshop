@@ -37,7 +37,7 @@ jobs:
       if: success() || failure()        # run this step even if previous step failed
       with: 
        name: newman-report 
-       path: newman-report.html
+       path: report.html
        
     - name: Newman Log Output File Storage
       uses: actions/upload-artifact@v4
