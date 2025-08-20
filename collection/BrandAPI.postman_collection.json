@@ -19,6 +19,27 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"let retrieveBrand =\r",
+											"{\r",
+											" \"type\": \"object\",\r",
+											"      \"properties\": {\r",
+											"        \"id\": {\r",
+											"          \"type\": \"string\"\r",
+											"        },\r",
+											"        \"name\": {\r",
+											"          \"type\": \"string\"\r",
+											"        },\r",
+											"        \"slug\": {\r",
+											"          \"type\": \"string\"\r",
+											"        }\r",
+											"      },\r",
+											"    \"required\": [\r",
+											"    \"name\",\r",
+											"    \"slug\",\r",
+											"    \"id\"\r",
+											"  ]   \r",
+											"}\r",
+											"\r",
 											"let retrieveAllBrands =\r",
 											"{\r",
 											"  \"type\": \"array\",\r",
@@ -55,7 +76,8 @@
 											"};\r",
 											"\r",
 											"pm.environment.set(\"deleteSpecificBrand\", JSON.stringify(deleteSpecificBrand));\r",
-											"pm.environment.set(\"retrieveAllBrands\", JSON.stringify(retrieveAllBrands));"
+											"pm.environment.set(\"retrieveAllBrands\", JSON.stringify(retrieveAllBrands));\r",
+											"pm.environment.set(\"retrieveBrand\", JSON.stringify(retrieveBrand));"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1631,10 +1653,10 @@
 					]
 				},
 				{
-					"name": "GET_Brand",
+					"name": "GET_Brands",
 					"item": [
 						{
-							"name": "1_GET_BrandDefaultRequest",
+							"name": "1_GET_BrandsDefaultRequest",
 							"event": [
 								{
 									"listen": "test",
@@ -1718,7 +1740,7 @@
 							"response": []
 						},
 						{
-							"name": "2_GET_BrandWithoutSSL",
+							"name": "2_GET_BrandsWithoutSSL",
 							"event": [
 								{
 									"listen": "test",
@@ -1774,7 +1796,7 @@
 							"response": []
 						},
 						{
-							"name": "3_GET_BrandInvalidURL%AtTheEnd",
+							"name": "3_GET_BrandsInvalidURL%AtTheEnd",
 							"event": [
 								{
 									"listen": "test",
@@ -1825,7 +1847,7 @@
 							"response": []
 						},
 						{
-							"name": "4_GET_BrandNonExistURL",
+							"name": "4_GET_BrandsNonExistURL",
 							"event": [
 								{
 									"listen": "test",
@@ -1881,7 +1903,7 @@
 							"response": []
 						},
 						{
-							"name": "5_GET_BrandUppercaseURL",
+							"name": "5_GET_BrandsUppercaseURL",
 							"event": [
 								{
 									"listen": "test",
@@ -1939,7 +1961,7 @@
 							"response": []
 						},
 						{
-							"name": "6_GET_BrandMethodNotAllowed",
+							"name": "6_GET_BrandsMethodNotAllowed",
 							"event": [
 								{
 									"listen": "test",
@@ -2023,7 +2045,7 @@
 											"});\r",
 											"\r",
 											"\r",
-											"let schema = JSON.parse(pm.environment.get(\"retrieveAllBrands\"));\r",
+											"let schema = JSON.parse(pm.environment.get(\"retrieveBrand\"));\r",
 											"\r",
 											"pm.test(\"Json schema is valid\", function() {\r",
 											"    pm.response.to.have.jsonSchema(schema)\r",
@@ -2122,7 +2144,7 @@
 											"    pm.expect(json.slug).to.eql(pm.collectionVariables.get(\"post_slug\"));\r",
 											"});\r",
 											"\r",
-											"let schema = JSON.parse(pm.environment.get(\"retrieveAllBrands\"));\r",
+											"let schema = JSON.parse(pm.environment.get(\"retrieveBrand\"));\r",
 											"\r",
 											"pm.test(\"Json schema is valid\", function() {\r",
 											"    pm.response.to.have.jsonSchema(schema)\r",
@@ -2478,7 +2500,7 @@
 							"response": []
 						},
 						{
-							"name": "13_GET_BrandByNonExistName",
+							"name": "13F_GET_BrandByNonExistName",
 							"event": [
 								{
 									"listen": "test",
@@ -2688,7 +2710,8 @@
 											"\r",
 											"        pm.variables.set(\"post_name\", upperBrandName);\r",
 											"    }\r",
-											"}\r",
+											"};\r",
+											"\r",
 											""
 										],
 										"type": "text/javascript",
@@ -2822,7 +2845,7 @@
 							"response": []
 						},
 						{
-							"name": "17_GET_BrandByName=%",
+							"name": "17F_GET_BrandByName=%",
 							"event": [
 								{
 									"listen": "test",
@@ -2897,7 +2920,7 @@
 							"response": []
 						},
 						{
-							"name": "18_GET_BrandByName=&",
+							"name": "18F_GET_BrandByName=&",
 							"event": [
 								{
 									"listen": "test",
@@ -4948,6 +4971,18 @@
 		},
 		{
 			"key": "post_brand_id",
+			"value": ""
+		},
+		{
+			"key": "get_brand_id",
+			"value": ""
+		},
+		{
+			"key": "get_brand_name",
+			"value": ""
+		},
+		{
+			"key": "get_brand_slug",
 			"value": ""
 		}
 	]
