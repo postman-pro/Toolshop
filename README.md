@@ -5,7 +5,7 @@
 This project automates API testing for the Brands endpoint of the Toolshop demo application (https://api.practicesoftwaretesting.com). 
 It uses Postman to perform all CRUD operations on the Brand resource. Tests validate that POST, GET, PUT, DELETE methods behave as expected, including checking HTTP status codes and response data. JSON schema validation ensures the response structure and data types match the defined requirements. The suite includes: positive and negative scenarios to cover edge cases, error handling.
 
-NOTES: The root URL `https://api.practicesoftwaretesting.com` does not return a UI page, but the API endpoints (for example, `/brands`) are fully functional. All API tests in Postman succeed and verify that the backend behaves correctly even though the root resource is not supported.
+Notes: The root URL `https://api.practicesoftwaretesting.com` does not return a UI page, but the API endpoints (for example, `/brands`) are fully functional. All API tests in Postman succeed and verify that the backend behaves correctly even though the root resource is not supported.
 
 ## Prerequisites
 
